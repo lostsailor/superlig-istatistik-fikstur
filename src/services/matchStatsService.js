@@ -1,5 +1,4 @@
 const apiClient = require('../utils/apiClient');
-const cacheManager = require('../cache/cacheManager');
 const db = require('../database/db');
 
 class MatchStatsService {
@@ -117,27 +116,15 @@ class MatchStatsService {
    * Maç istatistiklerini getir (önce cache, sonra veritabanı, sonra API)
    */
   async getMatchStats(matchUuid) {
-    const cacheKey = `match_stats_${matchUuid}`;
-
-    // Cache kontrol
-    const cached = cacheManager.get(cacheKey);
-    if (cached) {
-      return cached;
-    }
-
     // Veritabanı kontrol
     const dbStats = db.getMatchStats(matchUuid);
     if (dbStats) {
-      cacheManager.set(cacheKey, dbStats);
       return dbStats;
     }
 
     // API'den çek
     const matchDetail = await this.fetchMatchDetail(matchUuid);
     if (matchDetail) {
-      // Cache'e kaydet
-      cacheManager.set(cacheKey, matchDetail);
-
       // Fixture'dan maç bilgilerini al
       const fixture = db.getFixture(matchUuid);
       const matchDate = fixture?.match_date || new Date().toISOString().split('T')[0];
@@ -175,9 +162,6 @@ class MatchStatsService {
         if (matchUuid) {
           const matchDetail = await this.fetchMatchDetail(matchUuid);
           if (matchDetail) {
-            const cacheKey = `match_stats_${matchUuid}`;
-            cacheManager.set(cacheKey, matchDetail);
-            
             db.saveMatchStats(
               matchUuid,
               today,
@@ -223,9 +207,6 @@ class MatchStatsService {
           if (!existing) {
             const matchDetail = await this.fetchMatchDetail(matchUuid);
             if (matchDetail) {
-              const cacheKey = `match_stats_${matchUuid}`;
-              cacheManager.set(cacheKey, matchDetail);
-              
               db.saveMatchStats(
                 matchUuid,
                 dateStr,
@@ -255,17 +236,9 @@ class MatchStatsService {
    * Tarihe göre maç istatistiklerini getir
    */
   async getMatchStatsByDate(dateStr) {
-    // Cache kontrol
-    const cacheKey = `match_stats_date_${dateStr}`;
-    const cached = cacheManager.get(cacheKey);
-    if (cached) {
-      return cached;
-    }
-
     // Veritabanı kontrol
     const dbStats = db.getMatchStatsByDate(dateStr);
     if (dbStats && dbStats.length > 0) {
-      cacheManager.set(cacheKey, dbStats);
       return dbStats;
     }
 
@@ -297,7 +270,6 @@ class MatchStatsService {
       }
     }
 
-    cacheManager.set(cacheKey, results);
     return results;
   }
 }

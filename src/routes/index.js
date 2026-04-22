@@ -2,7 +2,6 @@ const express = require('express');
 const fixtureService = require('../services/fixtureService');
 const standingsService = require('../services/standingsService');
 const matchStatsService = require('../services/matchStatsService');
-const cacheManager = require('../cache/cacheManager');
 
 const router = express.Router();
 
@@ -89,30 +88,6 @@ router.get('/match-stats/date/:date', async (req, res) => {
 });
 
 /**
- * Cache durum endpoint'i
- */
-router.get('/cache/stats', async (req, res) => {
-  try {
-    const stats = cacheManager.getStats();
-    res.json({ success: true, data: stats });
-  } catch (error) {
-    res.status(500).json({ success: false, error: error.message });
-  }
-});
-
-/**
- * Cache temizleme endpoint'i
- */
-router.post('/cache/clear', async (req, res) => {
-  try {
-    cacheManager.flushAll();
-    res.json({ success: true, message: 'Cache temizlendi' });
-  } catch (error) {
-    res.status(500).json({ success: false, error: error.message });
-  }
-});
-
-/**
  * Geçmiş veri tamamlama tetikleme endpoint'i
  */
 router.post('/backfill', async (req, res) => {
@@ -124,5 +99,23 @@ router.post('/backfill', async (req, res) => {
     res.status(500).json({ success: false, error: error.message });
   }
 });
+
+router.get('/fixture-with-stats/:fixtureUuid', async (req, res) => {
+  try {
+    let { fixtureUuid } = req.params;
+    if (!fixtureUuid) {
+      fixtureUuid = '482ofyysbdbeoxauk19yg7tdt';
+    }
+    console.log('fixtureUuid', fixtureUuid);
+    const fixture = await fixtureService.getFixtureByUuid(fixtureUuid);
+    for (const key in fixture) {
+      console.log(key, fixture[key]);
+    }
+    res.json({ success: true, data: fixture });
+  } catch (error) {
+    res.status(500).json({ success: false, error: error.message });
+  }
+});
+
 
 module.exports = router;

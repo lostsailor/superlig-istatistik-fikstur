@@ -1,5 +1,4 @@
 const apiClient = require('../utils/apiClient');
-const cacheManager = require('../cache/cacheManager');
 const db = require('../database/db');
 
 class StandingsService {
@@ -24,9 +23,6 @@ class StandingsService {
       }
 
       if (standings.length > 0) {
-        // Cache'e kaydet
-        cacheManager.set('standings', standings);
-        
         // Veritabanına kaydet
         db.saveStandings(standings);
       }
@@ -73,12 +69,6 @@ class StandingsService {
    * Puan durumunu getir (önce cache, sonra veritabanı, sonra API)
    */
   async getStandings() {
-    // Cache kontrol
-    const cached = cacheManager.get('standings');
-    if (cached) {
-      return cached;
-    }
-
     // Veritabanı kontrol
     const dbStandings = db.getStandings();
     if (dbStandings && dbStandings.length > 0) {

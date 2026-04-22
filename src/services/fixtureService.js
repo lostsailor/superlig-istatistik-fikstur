@@ -1,5 +1,4 @@
 const puppeteer = require('puppeteer');
-const cacheManager = require('../cache/cacheManager');
 const db = require('../database/db');
 
 class FixtureService {
@@ -267,8 +266,6 @@ class FixtureService {
           matches: allMatches
         };
         
-        // Cache'e kaydet
-        cacheManager.set('fixtures', result);
         
         // Veritabanına kaydet
         for (const match of allMatches) {
@@ -300,13 +297,6 @@ class FixtureService {
       this.competitionUuid = competitionUuid;
     }
 
-    // Cache kontrol
-    const cached = cacheManager.get('fixtures');
-    if (cached) {
-      console.log('Fikstür cache\'den geldi');
-      return cached;
-    }
-
     // Veritabanı kontrol
     const dbFixtures = db.getAllFixtures();
     if (dbFixtures && dbFixtures.length > 0) {
@@ -323,17 +313,9 @@ class FixtureService {
    * Belirli bir maçın fikstürünü getir
    */
   async getFixture(matchUuid) {
-    // Cache kontrol
-    const cacheKey = `fixture_${matchUuid}`;
-    const cached = cacheManager.get(cacheKey);
-    if (cached) {
-      return cached;
-    }
-
     // Veritabanı kontrol
     const dbFixture = db.getFixture(matchUuid);
     if (dbFixture) {
-      cacheManager.set(cacheKey, dbFixture);
       return dbFixture;
     }
 

@@ -1,29 +1,51 @@
+FastAPI ve json kullanarak bir API servisi kurulacak.(JSON dosya DB olarak kullanılacak) 
 
-
-# FIKSTUR
-https://www.sahadan.com/lig/trendyol-super-lig/482ofyysbdbeoxauk19yg7tdt/fikstur içerisindeki DOM'da bir JSON var buna göre fikstürü alacağız.
-
-# PUAN DURUMU
-
-https://www.sahadan.com/lig/trendyol-super-lig/482ofyysbdbeoxauk19yg7tdt adresindeki sayfada https://www.sahadan.com/api/index/country-area-6kd6webenogylfgwt2aa9l6vx ile başlayan endpointten lig bilgilerini alacağız. Bunlar bizim puan durumumuzda kullanılacak. Bunu 30 dakikada bir kontrol edeceğiz. Cache'e kaydedeceğiz.
-
-# MAÇ İSTATİSTİKLERİ
-
-İçinde bulunduğumuz günü 30 dakikada bir kontrol edeceğiz. Cache ve veritabanına kaydedeceğiz.
-cache boyutu 1gb olacak. Cache'de en eski kayıtları silerek yer açacağız.
-cache'de olmayan maçlar için veritabanına bakacağız.
-veritabanında da yoksa API'den çekip cache'e ve veritabanına kaydedeceğiz.
-Otomatik geçmiş veri tamamlama işlemi iki yıla kadar geriye doğru çalışacak. Her istek arasında 3 ila 10 saniye arasında rastgele bekleme süresi ekleyeceğiz.
-
+sistem açılışında dbde varsa cache yüklenecek. 
+Veri güncelleme başlangıçta ve  her saat 57-59 arası güncelleme yapılacak
+Aşağıdaki yapı çalışacak ve veriler cache'de tutulacak DB'de güncellenecek.
+Bizden hizmet alan uygulamalar bu cache'den veri çekecek.
 ```
-20260419 tarihi için https://www.sahadan.com/api/index/betting-service-bulletin-soccer-current-20260419?a=bs&e=bss&application=mackolik.com&language=tr&country=tr&date=2026-04-19 istek atacağız.
-Gelen response'dan data > soccer > title içinden lig adını alacağız.
-Gelen response'dan data > soccer > matches içinden maç uuidlerini alacağız.
+https://www.sahadan.com/api/index/soccer-competition-482ofyysbdbeoxauk19yg7tdt?a=bs&e=sac&competition_uuid=482ofyysbdbeoxauk19yg7tdt&language=tr&country=tr&application=mackolik.com
+bu linkten gamesets ve rankingleri alacağız. (form_tables, rankings_live, transfers, stat_top_teams, stat_top_players, team_stats, player_stats kısımları çıkarılacak.)
 
-4l7u8xcjrptlo0te85spnio7o maç uuid'si için https://www.sahadan.com/api/index/match-detail-4l7u8xcjrptlo0te85spnio7o?application=com.kokteyl.mackolik&language=tr&country=tr&e=sam&match_uuid=4l7u8xcjrptlo0te85spnio7o&a=bs istek atacağız.
-Gelen response'dan stat_team_detailed objesini alacağız. Bunu cache'e ve veritabanına kaydedeceğiz.
+gamesets arrayi içindeki her bir gameset için matches arrayi var. Bu matches arrayi içindeki her bir match için maç detayını ekleyeceğiz.
+maç detayı için https://www.sahadan.com/api/index/match-detail-{matchUuid}?application=com.kokteyl.mackolik&language=tr&country=tr&e=sam&match_uuid={matchUuid}&a=bs kullanabiliriz.
+
+fixtür ve gamesets için tek bir endpoint sunulacak. (parametre olarak gameset verilirse o gameset'in maçları getirilecek, gameset verilmezse tüm fixtür getirilecek)
+rankingler için de tek bir endpoint sunulacak.
 ```
 
-# EK İSTERLER
-datayı anlamlandırmak için hem orjinali hem de türkçe key isimleri eklenmeli.
-Bize gelen istekleri hemen işleyelim.
+Şunun gibi bir dönüşüm tablosu kullanılarak türkçe veriler de yerleştirilmiş olacak:
+´´´
+      'possession': 'Topla oynama',
+      'expected_goals': 'Beklenen gol',
+      'touches_in_opp_box': 'Rakip ceza sahası dokunma',
+      'shots': 'Şut',
+      'shots_on_target': 'İsabetli şut',
+      'shots_off_target': 'İsabetsiz şut',
+      'corners': 'Korner',
+      'fouls': 'Faul',
+      'blocked_shots': 'Bloklanan şut',
+      'woodwork': 'Direk',
+      'big_chances_missed': 'Kaçırılan büyük fırsat',
+      'throw_in': 'Aut',
+      'passes': 'Pas',
+      'successful_passes': 'Başarılı pas',
+      'crosses': 'Orta',
+      'successful_tackles': 'Başarılı müdahaleler',
+      'successful_duels': 'Kazanılan ikili mücadeleler',
+      'successful_aerial_duels': 'Kazanılan hava mücadeleleri',
+      'successful_takeons': 'Başarılı adam geçmeler',
+      'clearances': 'Topu uzaklaştırma',
+      'interceptions': 'Top kesme',
+      'total_offside': 'Toplam ofsayt',
+      'successful_crosses': 'Başarılı orta',
+      'yellow_card': 'Sarı kart',
+      'second_yellow_card': 'İkinci sarı kart',
+      'direct_red_card': 'Doğrudan kırmızı kart',
+      'red_card': 'Kırmızı kart',
+      'passing_accuracy': 'Pas başarısı',
+      'running_distance': 'Koşu mesafesi'
+´´´
+
+

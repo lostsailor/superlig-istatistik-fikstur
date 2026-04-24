@@ -17,8 +17,7 @@ async def lifespan(app: FastAPI):
     if db_loaded:
         print("Cache loaded from database")
     else:
-        print("No existing database found, fetching initial data...")
-        await scheduler.initial_update()
+        print("No existing database found - will fetch on first request or scheduled update")
     
     # Start the scheduler
     scheduler.start()
@@ -42,4 +41,4 @@ app.include_router(router, prefix="/api")
 
 if __name__ == "__main__":
     import uvicorn
-    uvicorn.run(app, host="0.0.0.0", port=8000)
+    uvicorn.run(app, host="0.0.0.0", port=8001)

@@ -15,6 +15,7 @@ class DataUpdateScheduler:
         print(f"[{datetime.now()}] Starting data update...")
         try:
             data = await sahadan_service.fetch_all_data()
+            print(f"[{datetime.now()}] Fetched {len(data.get('gamesets', []))} gamesets and {len(data.get('rankings', []))} rankings")
             
             # Save to database
             db.save_data(data)

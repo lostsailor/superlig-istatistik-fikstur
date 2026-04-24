@@ -2,6 +2,7 @@ from fastapi import APIRouter, HTTPException
 from typing import Optional
 from app.cache_manager import cache
 from app.models import GameSet, Ranking
+from app.scheduler import scheduler
 
 router = APIRouter()
 
@@ -44,3 +45,10 @@ async def health_check():
         "status": "healthy",
         "cache_loaded": cache.is_loaded()
     }
+
+
+@router.post("/refresh")
+async def refresh_data():
+    """Manually trigger data refresh."""
+    await scheduler.update_data()
+    return {"status": "success", "message": "Data refresh triggered"}

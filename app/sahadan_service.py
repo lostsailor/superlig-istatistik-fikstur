@@ -38,7 +38,7 @@ class SahadanService:
             "match_uuid": match_uuid,
             "a": "bs"
         }
-        
+        print(f"Fetching match detail for {match_uuid}")
         async with httpx.AsyncClient() as client:
             response = await client.get(url, params=params)
             response.raise_for_status()
@@ -56,14 +56,18 @@ class SahadanService:
             
             if "matches" in gameset_data:
                 for match_data in gameset_data["matches"]:
+                    # Team names are in team_A and team_B fields
+                    home_team_name = match_data.get("team_A", {}).get("name", "")
+                    away_team_name = match_data.get("team_B", {}).get("name", "")
+                    
                     match = Match(
                         uuid=match_data.get("uuid", ""),
-                        home_team=match_data.get("home_team", {}).get("name", ""),
-                        away_team=match_data.get("away_team", {}).get("name", ""),
+                        home_team=home_team_name,
+                        away_team=away_team_name,
                         home_score=match_data.get("home_score"),
                         away_score=match_data.get("away_score"),
                         status=match_data.get("status", ""),
-                        start_time=match_data.get("start_time", ""),
+                        start_time=match_data.get("date_time_utc", ""),
                         raw_data=match_data
                     )
                     matches.append(match)
@@ -83,32 +87,57 @@ class SahadanService:
         """Extract rankings from API response."""
         rankings = []
         
-        # The requirements mention rankings_live should be included
-        if "rankings_live" in data:
-            for ranking_data in data["rankings_live"]:
-                teams = []
-                
-                if "table" in ranking_data:
-                    for team_data in ranking_data["table"]:
-                        team = RankingTeam(
-                            position=team_data.get("position", 0),
-                            team=team_data.get("team", {}).get("name", ""),
-                            played=team_data.get("played", 0),
-                            won=team_data.get("won", 0),
-                            drawn=team_data.get("drawn", 0),
-                            lost=team_data.get("lost", 0),
-                            goals_for=team_data.get("goals_for", 0),
-                            goals_against=team_data.get("goals_against", 0),
-                            goal_difference=team_data.get("goal_difference", 0),
-                            points=team_data.get("points", 0)
-                        )
-                        teams.append(team)
-                
-                ranking = Ranking(
-                    uuid=ranking_data.get("uuid", ""),
-                    name=ranking_data.get("name", ""),
-                    teams=teams
-                )
+        # Try rankings_live first, then fallback to rankings
+        rankings_data = data.get("rankings_live", data.get("rankings", []))
+        
+        # Handle case where rankings_data is a dict with list values
+        if isinstance(rankings_data, dict):
+            # Flatten the dict values into a single list
+            flattened = []
+            for value in rankings_data.values():
+                if isinstance(value, list):
+                    flattened.extend(value)
+                else:
+                    flattened.append(value)
+            rankings_data = flattened
+        
+        for ranking_data in rankings_data:
+            # Skip if ranking_data is a string (likely an ID or error)
+            if isinstance(ranking_data, str):
+                continue
+            
+            # Skip if ranking_data is not a dict
+            if not isinstance(ranking_data, dict):
+                continue
+            
+            teams = []
+            
+            # The table data is directly in the ranking dict
+            table_data = ranking_data.get("table", [])
+            
+            if table_data:
+                for team_data in table_data:
+                    # Map API field names to our model
+                    team = RankingTeam(
+                        position=team_data.get("rank", 0),
+                        team=team_data.get("team", {}).get("name", ""),
+                        played=team_data.get("played", 0),
+                        won=team_data.get("win", 0),
+                        drawn=team_data.get("draw", 0),
+                        lost=team_data.get("lost", 0),
+                        goals_for=team_data.get("pro", 0),
+                        goals_against=team_data.get("against", 0),
+                        goal_difference=team_data.get("pro", 0) - team_data.get("against", 0),
+                        points=team_data.get("pts", 0)
+                    )
+                    teams.append(team)
+            
+            ranking = Ranking(
+                uuid=ranking_data.get("competition", {}).get("uuid", ""),
+                name=ranking_data.get("name", ""),
+                teams=teams
+            )
+            if teams:  # Only add if we have teams
                 rankings.append(ranking)
         
         return rankings
@@ -138,17 +167,21 @@ class SahadanService:
         
         return match
     
-    async def fetch_all_data(self) -> Dict[str, Any]:
+    async def fetch_all_data(self, fetch_match_details: bool = False) -> Dict[str, Any]:
         """Fetch and process all data from Sahadan API."""
         competition_data = await self.fetch_competition_data()
         
-        gamesets = self.extract_gamesets(competition_data)
-        rankings = self.extract_rankings(competition_data)
+        # The actual data is nested under 'data' key
+        actual_data = competition_data.get("data", competition_data)
         
-        # Enrich matches with details
-        for gameset in gamesets:
-            for i, match in enumerate(gameset.matches):
-                gameset.matches[i] = await self.enrich_match_with_details(match)
+        gamesets = self.extract_gamesets(actual_data)
+        rankings = self.extract_rankings(actual_data)
+        
+        # Enrich matches with details (optional - disabled by default for performance)
+        if fetch_match_details:
+            for gameset in gamesets:
+                for i, match in enumerate(gameset.matches):
+                    gameset.matches[i] = await self.enrich_match_with_details(match)
         
         return {
             "gamesets": [gs.dict() for gs in gamesets],

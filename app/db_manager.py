@@ -28,7 +28,7 @@ class DBManager:
     
     def load_to_cache(self):
         data = self.load_data()
-        if data:
+        if data and (data.get("gamesets") or data.get("rankings")):
             fixture_data = FixtureData(**data)
             cache.set_fixture_data(fixture_data)
             return True

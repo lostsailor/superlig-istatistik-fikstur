@@ -1,3 +1,23 @@
+# Node.js
 node_modules/
-data/
 package-lock.json
+
+# Data directory (exclude JSON files but keep directory structure)
+data/
+!data/.gitkeep
+
+# Python (from remote)
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+ENV/
+.venv
+.env
+
+# Environment files
+.env
+*.env

@@ -537,7 +537,8 @@ function transform(sahadanResp, wcGames = null) {
             homeEn: cleanPlaceholderName(enName(m.team_A.name)),
             awayEn: cleanPlaceholderName(enName(m.team_B.name)),
             finished: finished,
-            timeElapsed: timeElapsed
+            timeElapsed: timeElapsed,
+            utcDate: m.date_time_utc
           });
         }
       }
@@ -570,10 +571,14 @@ function transform(sahadanResp, wcGames = null) {
 
       let isFinished = wg.finished === "TRUE" || wg.finished === true;
       let elapsed = wg.time_elapsed === "null" ? "notstarted" : wg.time_elapsed;
+      let turkeyDateStr = wg.local_date;
 
       if (sMatch) {
         isFinished = sMatch.finished;
         elapsed = sMatch.timeElapsed;
+        if (sMatch.utcDate) {
+          turkeyDateStr = toTurkeyTime(sMatch.utcDate);
+        }
       }
 
       let hs = wg.home_score === "null" || wg.home_score === null ? null : parseInt(wg.home_score);
@@ -596,7 +601,7 @@ function transform(sahadanResp, wcGames = null) {
         away_scorers: wg.away_scorers === "null" ? null : wg.away_scorers,
         group: wg.group === "null" ? "" : wg.group, 
         matchday: wg.matchday,
-        local_date: wg.local_date,
+        local_date: turkeyDateStr,
         stadium_id: wg.stadium_id === "null" ? null : wg.stadium_id, 
         stadium_name_tr: stNameTr, stadium_city_tr: stCityTr, stadium_country_tr: stCountryTr,
         finished: isFinished, 

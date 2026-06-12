@@ -59,25 +59,19 @@ const STAT_MAPPING = {
   "Sarı kart": "Sarı Kart",
   "İkinci sarı kart": "İkinci Sarıdan Kırmızı Kart",
   "Doğrudan kırmızı kart": "Direkt Kırmızı Kart",
-  "Pas": "Toplam Pas",
-  "Başarılı pas": "İsabetli Pas",
-  "Orta": "Toplam Orta",
-  "Başarılı orta": "İsabetli Orta",
-  "Topu uzaklaştırma": "Uzaklaştırma",
-
-  // English keys (for live matches)
   "possession": "Topla Oynama",
   "expected_goals": "Gol Beklentisi (xG)",
-  "shots_on_target": "İsabetli Şut",
+  "expected_goals_on_set_pieces": "Duran Top xG",
+  "touches_in_opp_box": "Rakip Ceza Sahasında Topla Buluşma",
   "shots": "Toplam Şut",
-  "touches_in_opp_box": "Rakip Ceza Sahasında Topla Buluşma (RCS)",
+  "shots_on_target": "İsabetli Şut",
+  "shots_off_target": "İsabetsiz Şut",
   "corners": "Korner",
-  "total_offside": "Ofsayt",
-  "throw_in": "Taç Atışı",
   "fouls": "Faul",
-  "yellow_card": "Sarı Kart",
-  "second_yellow_card": "İkinci Sarıdan Kırmızı Kart",
-  "direct_red_card": "Direkt Kırmızı Kart",
+  "blocked_shots": "Engellenen Şut",
+  "woodwork": "Direkten Dönen Şut",
+  "big_chances_missed": "Kaçan Net Fırsat",
+  "throw_in": "Taç Atışı",
   "passes": "Toplam Pas",
   "successful_passes": "İsabetli Pas",
   "crosses": "Toplam Orta",
@@ -263,16 +257,14 @@ function filterStats(statData) {
   if (!statData) return null;
   const out = {};
   if (statData.a && Array.isArray(statData.a)) {
-    const f = statData.a
-      .map(s => {
-        const mappedType = STAT_MAPPING[s.type] || s.type;
-        return {
-          type: mappedType,
-          team_A_value: s.team_A_value,
-          team_B_value: s.team_B_value
-        };
-      })
-      .filter(s => ALLOWED_STATS.has(s.type));
+    const f = statData.a.map(s => {
+      const mappedType = STAT_MAPPING[s.type] || s.type;
+      return {
+        type: mappedType,
+        team_A_value: s.team_A_value,
+        team_B_value: s.team_B_value
+      };
+    });
     if (f.length) out.a = f;
   }
   return Object.keys(out).length ? out : null;

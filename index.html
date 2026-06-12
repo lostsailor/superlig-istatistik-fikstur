@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FIFA Dünya Kupası 2026 | Canlı Puan Durumu, Fikstür ve Skorlar</title>
+  <link rel="stylesheet" href="index.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⚽</text></svg>">
+</head>
+<body>
+  <div class="container">
+    
+    <!-- Header -->
+    <header>
+      <div class="logo-area">
+        <span class="logo-icon">🏆</span>
+        <h1>FIFA Dünya Kupası 2026</h1>
+      </div>
+      <p class="subtitle">Kanada, Meksika ve Amerika Birleşik Devletleri'nde düzenlenecek 2026 Dünya Kupası fikstürü, güncel puan durumları, stadyumlar ve canlı maç sonuçları.</p>
+      
+      <!-- Status Badge & Sync -->
+      <div class="status-container">
+        <div id="status-dot" class="status-dot local"></div>
+        <span id="status-text" class="status-text">Yükleniyor...</span>
+        <button id="refresh-btn" class="refresh-btn" title="Canlı verileri güncelle">
+          <svg fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0l3.181 3.183a8.25 8.25 0 0013.803-3.7M4.031 9.865a8.25 8.25 0 0113.803-3.7l3.181 3.182m0-4.991v4.99"></path>
+          </svg>
+          Güncelle
+        </button>
+        <button id="excel-btn" class="refresh-btn" style="color: var(--accent-green);" title="Excel dosyası olarak indir">
+          <svg fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3"></path>
+          </svg>
+          Excel'e Aktar
+        </button>
+      </div>
+    </header>
+
+    <!-- Tab Navigation -->
+    <nav class="nav-tabs">
+      <button class="tab-btn active" data-tab="matches">Maç Fikstürü & Skorlar</button>
+      <button class="tab-btn" data-tab="groups">Puan Durumu</button>
+      <button class="tab-btn" data-tab="bracket">Eleme Aşaması (Şema)</button>
+      <button class="tab-btn" data-tab="stadiums">Ev Sahibi Şehirler</button>
+    </nav>
+
+    <!-- Interactive Filters (Only visible on Matches Tab by default) -->
+    <div id="filter-bar" class="filter-bar">
+      <div class="filter-group">
+        <div class="filter-group-item">
+          <span class="filter-label">Aşama:</span>
+          <select id="filter-stage" class="select-custom">
+            <option value="all">Tüm Karşılaşmalar</option>
+            <option value="group">Grup Aşaması</option>
+            <option value="knockout">Eleme Turları</option>
+          </select>
+        </div>
+        <div class="filter-group-item">
+          <span class="filter-label">Takım Filtresi:</span>
+          <select id="filter-team" class="select-custom">
+            <option value="all">Tüm Takımlar</option>
+          </select>
+        </div>
+      </div>
+      
+      <div class="search-wrapper">
+        <svg class="search-icon" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+        </svg>
+        <input type="text" id="search-matches" class="search-input" placeholder="Takım, şehir veya stadyum ara...">
+      </div>
+    </div>
+
+    <!-- Tab Contents -->
+    <main>
+      <!-- 1. Matches Tab -->
+      <section id="matches-tab" class="tab-content active">
+        <div id="matches-grid-container" class="matches-grid">
+          <!-- Dynamically filled -->
+        </div>
+      </section>
+
+      <!-- 2. Groups Tab -->
+      <section id="groups-tab" class="tab-content">
+        <div id="groups-grid-container" class="groups-container">
+          <!-- Dynamically filled -->
+        </div>
+      </section>
+
+      <!-- 3. Bracket Tab -->
+      <section id="bracket-tab" class="tab-content">
+        <div class="bracket-wrapper">
+          <div id="bracket-container" class="bracket-container">
+            <!-- Dynamically filled -->
+          </div>
+        </div>
+      </section>
+
+      <!-- 4. Stadiums Tab -->
+      <section id="stadiums-tab" class="tab-content">
+        <div id="stadiums-grid-container" class="stadiums-grid">
+          <!-- Dynamically filled -->
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+      <p>FIFA Dünya Kupası 2026 Bilgi Paneli &copy; 2026. Tüm hakları saklıdır.</p>
+      <p style="margin-top: 5px; font-size: 0.8rem;">Veriler açık kaynaklı <a href="https://github.com/rezarahiminia/worldcup2026" target="_blank" rel="noopener">worldcup2026</a> API projesi kullanılarak derlenmiştir.</p>
+    </footer>
+
+  </div>
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
+  <script src="data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

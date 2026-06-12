@@ -1,16 +1,20 @@
-# Süper Lig İstatistik ve Fikstür Sistemi
+# Süper Lig & FIFA Dünya Kupası İstatistik ve Fikstür Sistemi
 
-MongoDB tabanlı, otomatik veri senkronizasyonlu futbol maç veri sistemi.
+MongoDB tabanlı, otomatik veri senkronizasyonlu futbol maç veri sistemi. Hem **Süper Lig** hem de **FIFA Dünya Kupası** (2026 Kanada/Meksika/ABD) için istatistik, fikstür, puan durumu ve maç kadrolarını destekler.
 
 ## 🚀 Özellikler
 
+- **Çoklu Lig Desteği:** Süper Lig ve FIFA Dünya Kupası için ayrı ayrı veri çekme
 - **Otomatik Veri Çekme:** Sahadan.com'dan lig verisi ve maç detaylarını otomatik çeker
-- **MongoDB Entegrasyonu:** Tüm verileri MongoDB'de depolar
+- **MongoDB Entegrasyonu:** Tüm verileri MongoDB'de depolar (liglere göre ayrı koleksiyonlar)
 - **RESTful API:** JSON formatında veri erişimi sağlar
+- **Puan Durumu:** Anlık puan durumu sorgulama
+- **Maç Kadroları:** Maç bazında ilk 11 ve yedek oyuncu listeleri
+- **Maç İstatistikleri:** Detaylı maç istatistikleri (topla oynama, şut, pas, vb.)
+- **Maç Olayları:** Goller, kartlar, değişiklikler
 - **Otomatik Senkronizasyon:** Cron job ile periyodik veri güncellemesi
 - **Retry Mekanizması:** API hatalarında otomatik tekrar deneme
 - **Türkçe İstatistik:** İstatistik türlerini otomatik çevirir
-- **Batch Processing:** 6 eşzamanlı istek ile performans optimizasyonu
 
 ## 📋 Gereksinimler
 
@@ -46,8 +50,9 @@ npm start
 
 ```
 ├── server.js              # Express API sunucusu
-├── fetch_data.js          # Lig verisi çekme script'i
-├── fetch_match_detail.js  # Maç detayı çekme script'i
+├── fetch_data.js          # Lig verisi çekme script'i (competition parametresi ile)
+├── fetch_match_detail.js  # Maç detayı çekme script'i (competition parametresi ile)
+├── competitions.json      # Lig yapılandırma dosyası
 ├── package.json           # Proje bağımlılıkları
 ├── API_DOKUMANI.md        # API dokümantasyonu
 ├── README.md              # Bu dosya
@@ -61,17 +66,39 @@ npm start
 GET /
 ```
 
-### Lig Verisi
+### Süper Lig Verisi
 ```
 GET /api/get-league-data?week=25
 ```
 - `week` (opsiyonel): Belirli haftayı filtreler
 
-### Maç Detayları
+### Süper Lig Maç Detayları
 ```
 GET /api/match-details?matchId=uuid
 ```
 - `matchId` (zorunlu): Maç UUID'si
+
+### Süper Lig Puan Durumu
+```
+GET /api/get-rankings
+```
+
+### FIFA Dünya Kupası Verisi
+```
+GET /api/worldcup/league-data?week=1
+```
+- `week` (opsiyonel): Belirli turu/grubu filtreler
+
+### FIFA Dünya Kupası Maç Detayları
+```
+GET /api/worldcup/match-details?matchId=uuid
+```
+- `matchId` (zorunlu): Maç UUID'si
+
+### FIFA Dünya Kupası Puan Durumu
+```
+GET /api/worldcup/rankings
+```
 
 ## ⚙️ Otomatik Özellikler
 
@@ -137,14 +164,20 @@ const matchDetails = await fetch('/api/match-details?matchId=uuid');
 
 ### Manuel Veri Çekme
 ```bash
-# Lig verisi çek
+# Süper Lig verisi çek (varsayılan)
 node fetch_data.js
 
-# Belirli maç detayı çek
+# FIFA Dünya Kupası verisi çek
+node fetch_data.js worldcup
+
+# Belirli maç detayı çek (Süper Lig)
 node fetch_match_detail.js match-uuid
 
+# Belirli maç detayı çek (Dünya Kupası)
+node fetch_match_detail.js match-uuid worldcup
+
 # Özel retry sayısı ile
-node fetch_match_detail.js match-uuid 10
+node fetch_match_detail.js match-uuid superlig 10
 ```
 
 ## 🔍 İstatistik Çevirileri
@@ -159,19 +192,23 @@ Sistem, İngilizce istatistik türlerini otomatik olarak Türkçe'ye çevirir:
 
 ## 🗄️ MongoDB Koleksiyonları
 
-- **competition_data:** Lig ve maç listesi
-- **match_details:** Detaylı maç bilgileri
+| Koleksiyon | Açıklama |
+|---|---|
+| **competition_data** | Süper Lig maç listesi ve fikstür |
+| **match_details** | Süper Lig maç detayları (istatistik, kadro, olaylar) |
+| **worldcup_competition_data** | FIFA Dünya Kupası fikstür ve puan durumu |
+| **worldcup_match_details** | FIFA Dünya Kupası maç detayları |
 
 ### Veritabanı Yapısı
 ```javascript
-// competition_data
+// competition_data / worldcup_competition_data
 {
   _id: ObjectId,
   gamesets: [...],
-  rankings: [...]
+  rankings: { total: [...], home: [...], away: [...] }
 }
 
-// match_details
+// match_details / worldcup_match_details
 {
   _id: ObjectId,
   match: { uuid: "match-uuid", ... },

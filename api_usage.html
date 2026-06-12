@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>API Kullanımı | FIFA Dünya Kupası 2026</title>
+  <link rel="stylesheet" href="index.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⚽</text></svg>">
+  <style>
+    .doc-container { max-width: 960px; margin: 0 auto; padding: 2rem 1.5rem; }
+    .doc-container h1 { font-size: 2rem; font-weight: 800; margin-bottom: 0.5rem; }
+    .doc-container h2 { font-size: 1.4rem; font-weight: 700; margin-top: 2.5rem; margin-bottom: 0.75rem; }
+    .doc-container h3 { font-size: 1.1rem; font-weight: 600; margin-top: 1.5rem; margin-bottom: 0.5rem; }
+    .doc-container p { color: var(--text-secondary); margin-bottom: 1rem; }
+    .doc-container .back-link { display: inline-flex; align-items: center; gap: 0.5rem; color: var(--primary-color); text-decoration: none; font-weight: 500; margin-bottom: 1.5rem; }
+    .doc-container .back-link:hover { text-decoration: underline; }
+    .endpoint { background: var(--card-bg); border: 1px solid var(--border-color); border-radius: var(--border-radius); padding: 1.5rem; margin-bottom: 1.25rem; }
+    .endpoint .method { display: inline-block; background: var(--primary-color); color: #fff; font-size: 0.75rem; font-weight: 700; padding: 0.2rem 0.6rem; border-radius: 4px; margin-right: 0.5rem; vertical-align: middle; }
+    .endpoint .url { font-family: 'Courier New', monospace; font-weight: 600; font-size: 1rem; color: var(--accent-gold); }
+    .endpoint .desc { margin-top: 0.5rem; color: var(--text-secondary); }
+    .endpoint .params { margin-top: 0.75rem; }
+    .endpoint .params code { background: rgba(255,255,255,0.06); padding: 0.15rem 0.4rem; border-radius: 3px; font-size: 0.85rem; }
+    pre { background: #0a0f1e; border: 1px solid var(--border-color); border-radius: 10px; padding: 1rem; overflow-x: auto; font-size: 0.85rem; line-height: 1.5; margin-top: 0.5rem; }
+    pre code { color: #e2e8f0; }
+    .example-list { list-style: none; padding: 0; display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 0.75rem; }
+    .example-list li { background: var(--border-color); border-radius: 6px; padding: 0.3rem 0.8rem; font-size: 0.85rem; }
+    .example-list li a { color: var(--primary-color); text-decoration: none; }
+    .example-list li a:hover { text-decoration: underline; }
+    .note { background: rgba(59,130,246,0.08); border: 1px solid rgba(59,130,246,0.2); border-radius: 10px; padding: 1rem; margin-top: 1rem; }
+    .note strong { color: var(--primary-color); }
+    .note code { background: rgba(255,255,255,0.06); padding: 0.15rem 0.4rem; border-radius: 3px; font-size: 0.85rem; }
+  </style>
+</head>
+<body>
+  <div class="doc-container">
+    <a href="index.html" class="back-link">&larr; Ana Sayfaya Dön</a>
+    <h1>FIFA Dünya Kupası 2026 API</h1>
+    <p>Sahadan.com üzerinden canlı verilerin çekildiği, FIFA 2026 Dünya Kupası için REST API. Tüm endpoint'ler <strong>GET</strong> metodu ile çalışır ve JSON döndürür.</p>
+
+    <h2>Base URL</h2>
+    <pre><code>http://localhost:3000</code></pre>
+
+    <h2>Endpoint'ler</h2>
+
+    <!-- /api/all -->
+    <div class="endpoint">
+      <div><span class="method">GET</span><span class="url">/api/all</span></div>
+      <div class="desc">Tüm veriyi tek seferde döndürür: takımlar, gruplar, maçlar ve stadyumlar.</div>
+      <pre><code>{
+  "teams": [{ "id": "...", "name_tr": "Meksika", "name_en": "Mexico", "flag": "https://flagcdn.com/...", "fifa_code": "MEX", "groups": "A" }],
+  "groups": [{ "name": "A", "teams": [...] }],
+  "games": [{ "id": "...", "home_team_name_tr": "Meksika", ... }],
+  "stadiums": [{ "id": "1", "name_en": "Estadio Azteca", ... }]
+}</code></pre>
+      <div class="note"><strong>İpucu:</strong> İlk yüklemede tüm veriyi almak için idealdir.</div>
+    </div>
+
+    <!-- /api/games -->
+    <div class="endpoint">
+      <div><span class="method">GET</span><span class="url">/api/games</span></div>
+      <div class="desc">Tüm maçları döndürür. Her maç için; skor, takım bilgileri, stadyum, kadro, istatistik ve kart olayları dahildir.</div>
+      <pre><code>{
+  "games": [{
+    "id": "4tcpns1nwyc0jtpucgzj9dp90",
+    "home_team_name_tr": "Meksika",
+    "home_team_name_en": "Mexico",
+    "home_team_label": "MEX",
+    "away_team_name_tr": "Güney Afrika",
+    "away_team_name_en": "South Africa",
+    "away_team_label": "RSA",
+    "home_score": 2,
+    "away_score": 0,
+    "home_scorers": "{\"R. Jimenez 67'\"}",
+    "away_scorers": null,
+    "group": "A",
+    "matchday": "1",
+    "local_date": "06/11/2026 22:00",
+    "stadium_id": "1",
+    "stadium_name_tr": "Estadio Azteca",
+    "stadium_city_tr": "Meksiko",
+    "stadium_country_tr": "Meksika",
+    "finished": true,
+    "time_elapsed": "finished",
+    "type": "group",
+    "lineup": { "team_A": { "formation": "4-3-3", "players": [{ "name": "J. Rangel", "number": "1", "position": ["Goalkeeper"] }] } },
+    "stat_team_detailed": { "a": [{ "type": "Topla Oynama", "team_A_value": 61, "team_B_value": 39 }] },
+    "events": [{ "type": "YC", "minute": 34, "player": { "name": "C. Montes" } }]
+  }]
+}</code></pre>
+    </div>
+
+    <!-- /api/games/:group -->
+    <div class="endpoint">
+      <div><span class="method">GET</span><span class="url">/api/games/:grup</span></div>
+      <div class="desc">Belirtilen gruptaki (A-L) maçları döndürür.</div>
+      <div class="params">Parametre: <code>A</code> ile <code>L</code> arasında bir grup harfi.</div>
+      <pre><code>GET /api/games/A
+
+{
+  "group": "A",
+  "games": [ ... ]
+}</code></pre>
+      <ul class="example-list">
+        <li><a href="/api/games/A" target="_blank">/api/games/A</a></li>
+        <li><a href="/api/games/B" target="_blank">/api/games/B</a></li>
+        <li><a href="/api/games/C" target="_blank">/api/games/C</a></li>
+      </ul>
+    </div>
+
+    <!-- /api/groups -->
+    <div class="endpoint">
+      <div><span class="method">GET</span><span class="url">/api/groups</span></div>
+      <div class="desc">Tüm grupların puan durumunu döndürür.</div>
+      <pre><code>{
+  "groups": [{
+    "name": "A",
+    "teams": [{
+      "team_id": "...",
+      "name_tr": "Meksika",
+      "name_en": "Mexico",
+      "flag": "https://flagcdn.com/w80/mx.png",
+      "fifa_code": "MEX",
+      "mp": 1, "w": 1, "d": 0, "l": 0,
+      "gf": 2, "ga": 0, "gd": 2, "pts": 3
+    }]
+  }]
+}</code></pre>
+    </div>
+
+    <!-- /api/groups/:group -->
+    <div class="endpoint">
+      <div><span class="method">GET</span><span class="url">/api/groups/:grup</span></div>
+      <div class="desc">Belirtilen grubun puan durumunu döndürür.</div>
+      <ul class="example-list">
+        <li><a href="/api/groups/A" target="_blank">/api/groups/A</a></li>
+        <li><a href="/api/groups/D" target="_blank">/api/groups/D</a></li>
+      </ul>
+    </div>
+
+    <!-- /api/teams -->
+    <div class="endpoint">
+      <div><span class="method">GET</span><span class="url">/api/teams</span></div>
+      <div class="desc">Turnuvadaki tüm takımların listesini döndürür.</div>
+      <pre><code>{
+  "teams": [{
+    "id": "4vofb84dzb5fyc81n2ssws6ah",
+    "name_tr": "Meksika",
+    "name_en": "Mexico",
+    "flag": "https://flagcdn.com/w80/mx.png",
+    "fifa_code": "MEX",
+    "groups": "A"
+  }]
+}</code></pre>
+    </div>
+
+    <!-- /api/stadiums -->
+    <div class="endpoint">
+      <div><span class="method">GET</span><span class="url">/api/stadiums</span></div>
+      <div class="desc">16 stadyumun tüm bilgilerini döndürür.</div>
+      <pre><code>{
+  "stadiums": [{
+    "id": "1",
+    "name_en": "Estadio Azteca",
+    "name_tr": "Estadio Azteca",
+    "city_en": "Mexico City",
+    "city_tr": "Meksiko",
+    "country_en": "Mexico",
+    "country_tr": "Meksika",
+    "capacity": 83000, "region": "Central"
+  }]
+}</code></pre>
+    </div>
+
+    <h2>Maç Nesnesi Alanları</h2>
+    <pre><code>{
+  "id": "UUID (Sahadan.com maç ID'si)",
+  "home_team_id": "Ev sahibi takım UUID",
+  "away_team_id": "Deplasman takım UUID",
+  "home_team_name_en": "Ev sahibi İngilizce ad",
+  "home_team_name_tr": "Ev sahibi Türkçe ad",
+  "home_team_label": "Ev sahibi FIFA kodu (örn. MEX)",
+  "away_team_name_en": "Deplasman İngilizce ad",
+  "away_team_name_tr": "Deplasman Türkçe ad",
+  "away_team_label": "Deplasman FIFA kodu (örn. RSA)",
+  "home_team_flag": "Bayrak URL",
+  "away_team_flag": "Bayrak URL",
+  "home_score": "Ev sahibi skor (null = oynanmadı)",
+  "away_score": "Deplasman skor (null = oynanmadı)",
+  "home_scorers": "Gol atanlar JSON string (null = gol yok)",
+  "away_scorers": "Gol atanlar JSON string",
+  "group": "Grup harfi (A-L) veya boş",
+  "matchday": "Maç haftası (1-3 grup, 4 eleme)",
+  "local_date": "Türkiye saatiyle tarih (GG/AA/YYYY SS:dd)",
+  "stadium_id": "Stadyum ID (1-16)",
+  "stadium_name_tr": "Stadyum adı (Türkçe)",
+  "stadium_city_tr": "Şehir (Türkçe)",
+  "stadium_country_tr": "Ülke (Türkçe)",
+  "finished": true/false,
+  "time_elapsed": "finished" | "notstarted",
+  "type": "group" | "r32" | "r16" | "qf" | "sf" | "final" | "third",
+  "lineup": { "team_A": {...}, "team_B": {...} },
+  "stat_team_detailed": { "a": [...] },
+  "events": [ kart olayları (YC, Y2, RC) ]
+}</code></pre>
+
+    <h2>Kadro (Lineup) Yapısı</h2>
+    <p>Her oyuncu yalnızca <code>name</code>, <code>number</code> ve <code>position</code> bilgilerini içerir. Tüm name alan türevleri (match_name, first_name, last_name, formation_name) korunur.</p>
+    <pre><code>{
+  "team_A": {
+    "formation": "4-3-3",
+    "players": [{ "name": "J. Rangel", "match_name": "J. Rangel", "number": "1", "position": ["Goalkeeper"] }],
+    "substitutes": [...]
+  },
+  "team_B": { ... }
+}</code></pre>
+
+    <h2>İstatistik (stat_team_detailed)</h2>
+    <p>17 istatistik kalemi, sadece maç geneli (<code>a</code>) verisi ile döner. İlk yarı (<code>fh</code>) ve ikinci yarı (<code>sh</code>) bulunmaz.</p>
+    <pre><code>{
+  "a": [
+    { "type": "Topla Oynama", "team_A_value": 61, "team_B_value": 39 },
+    { "type": "Gol Beklentisi (xG)", "team_A_value": 1.8, "team_B_value": 0.5 },
+    { "type": "İsabetli Şut", "team_A_value": 3, "team_B_value": 1 },
+    { "type": "Toplam Şut", "team_A_value": 8, "team_B_value": 4 },
+    { "type": "Rakip Ceza Sahasında Topla Buluşma (RCS)", "team_A_value": 12, "team_B_value": 6 },
+    { "type": "Korner", "team_A_value": 5, "team_B_value": 2 },
+    { "type": "Ofsayt", "team_A_value": 1, "team_B_value": 3 },
+    { "type": "Taç Atışı", "team_A_value": 18, "team_B_value": 14 },
+    { "type": "Faul", "team_A_value": 12, "team_B_value": 15 },
+    { "type": "Sarı Kart", "team_A_value": 2, "team_B_value": 3 },
+    { "type": "İkinci Sarıdan Kırmızı Kart", "team_A_value": 0, "team_B_value": 1 },
+    { "type": "Direkt Kırmızı Kart", "team_A_value": 1, "team_B_value": 0 },
+    { "type": "Toplam Pas", "team_A_value": 420, "team_B_value": 380 },
+    { "type": "İsabetli Pas", "team_A_value": 360, "team_B_value": 310 },
+    { "type": "Toplam Orta", "team_A_value": 22, "team_B_value": 18 },
+    { "type": "İsabetli Orta", "team_A_value": 8, "team_B_value": 5 },
+    { "type": "Uzaklaştırma", "team_A_value": 15, "team_B_value": 20 }
+  ]
+}</code></pre>
+
+    <h2>Olaylar (Events)</h2>
+    <p>Sadece kart olayları döner: <code>YC</code> (sarı kart), <code>Y2</code> (ikinci sarıdan kırmızı), <code>RC</code> (direkt kırmızı kart). Gol, asist, oyuncu değişikliği vb. olaylar filtrelenmiştir.</p>
+    <pre><code>{
+  "type": "YC",
+  "minute": 34,
+  "team": "A",
+  "player": { "name": "C. Montes", "match_name": "C. Montes", "first_name": "César Jasib", "last_name": "Montes Castro" }
+}</code></pre>
+
+    <h2>Stadyumlar</h2>
+    <p>16 stadyumun tam listesi. Her stadyumun ID'si 1-16 arasındadır.</p>
+    <pre><code>1  - Estadio Azteca          - Meksiko         - Meksika
+2  - Estadio Akron           - Guadalajara     - Meksika
+3  - Estadio BBVA            - Monterrey       - Meksika
+4  - AT&T Stadyumu           - Dallas          - ABD
+5  - NRG Stadyumu            - Houston         - ABD
+6  - Arrowhead Stadyumu      - Kansas City     - ABD
+7  - Mercedes-Benz Stadyumu  - Atlanta         - ABD
+8  - Hard Rock Stadyumu      - Miami           - ABD
+9  - Gillette Stadyumu       - Boston          - ABD
+10 - Lincoln Financial Field - Philadelphia    - ABD
+11 - MetLife Stadyumu        - New York/NJ     - ABD
+12 - BMO Field               - Toronto         - Kanada
+13 - BC Place                - Vancouver       - Kanada
+14 - Lumen Field             - Seattle         - ABD
+15 - Levi's Stadyumu         - San Francisco   - ABD
+16 - SoFi Stadyumu           - Los Angeles     - ABD</code></pre>
+
+    <div class="note">
+      <strong>Veri Kaynağı:</strong> Tüm veriler <strong>Sahadan.com</strong> API'si üzerinden çekilmektedir. Veriler 60 saniyede bir otomatik güncellenir ve RAM önbellekte tutulur. Uygulama yeniden başlatıldığında önbellekten yüklenir.
+    </div>
+
+    <h2>Gruplar</h2>
+    <p>12 grup (A-L), her grupta 4 takım. Eleme turları: Son 32, Son 16, Çeyrek Final, Yarı Final, Üçüncülük Maçı ve Final.</p>
+
+    <p style="margin-top: 2rem; text-align: center; color: var(--text-secondary); font-size: 0.85rem;">FIFA Dünya Kupası 2026 &bull; Sahadan.com &bull; Veriler 60sn'de bir güncellenir</p>
+  </div>
+</body>
+</html>

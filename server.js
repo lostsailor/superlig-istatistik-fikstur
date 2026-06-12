@@ -633,7 +633,7 @@ function calculateAllStandings(groups, games) {
   
   for (const game of games) {
     if (game.type !== "group") continue;
-    if (game.home_score === null || game.away_score === null) continue;
+    if (game.time_elapsed === "notstarted" || game.home_score === null || game.away_score === null) continue;
     
     const group = groups.find(g => g.name === game.group);
     if (!group) continue;

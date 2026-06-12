@@ -398,14 +398,14 @@ const WORLD_CUP_2026_DATA = {
           "fifa_code": "MEX",
           "groups": "A",
           "team_id": "1",
-          "mp": 3,
+          "mp": 1,
           "w": 1,
-          "d": 2,
+          "d": 0,
           "l": 0,
           "gf": 2,
           "ga": 0,
           "gd": 2,
-          "pts": 5
+          "pts": 3
         },
         {
           "id": "3",
@@ -415,14 +415,14 @@ const WORLD_CUP_2026_DATA = {
           "fifa_code": "KOR",
           "groups": "A",
           "team_id": "3",
-          "mp": 3,
+          "mp": 1,
           "w": 1,
-          "d": 2,
+          "d": 0,
           "l": 0,
           "gf": 2,
           "ga": 1,
           "gd": 1,
-          "pts": 5
+          "pts": 3
         },
         {
           "id": "4",
@@ -432,14 +432,14 @@ const WORLD_CUP_2026_DATA = {
           "fifa_code": "CZE",
           "groups": "A",
           "team_id": "4",
-          "mp": 3,
+          "mp": 1,
           "w": 0,
-          "d": 2,
+          "d": 0,
           "l": 1,
           "gf": 1,
           "ga": 2,
           "gd": -1,
-          "pts": 2
+          "pts": 0
         },
         {
           "id": "2",
@@ -449,14 +449,14 @@ const WORLD_CUP_2026_DATA = {
           "fifa_code": "RSA",
           "groups": "A",
           "team_id": "2",
-          "mp": 3,
+          "mp": 1,
           "w": 0,
-          "d": 2,
+          "d": 0,
           "l": 1,
           "gf": 0,
           "ga": 2,
           "gd": -2,
-          "pts": 2
+          "pts": 0
         }
       ]
     },
@@ -471,14 +471,14 @@ const WORLD_CUP_2026_DATA = {
           "fifa_code": "BIH",
           "groups": "B",
           "team_id": "6",
-          "mp": 3,
+          "mp": 1,
           "w": 0,
-          "d": 3,
+          "d": 1,
           "l": 0,
           "gf": 1,
           "ga": 1,
           "gd": 0,
-          "pts": 3
+          "pts": 1
         },
         {
           "id": "5",
@@ -488,14 +488,14 @@ const WORLD_CUP_2026_DATA = {
           "fifa_code": "CAN",
           "groups": "B",
           "team_id": "5",
-          "mp": 3,
+          "mp": 1,
           "w": 0,
-          "d": 3,
+          "d": 1,
           "l": 0,
           "gf": 1,
           "ga": 1,
           "gd": 0,
-          "pts": 3
+          "pts": 1
         },
         {
           "id": "8",
@@ -505,14 +505,14 @@ const WORLD_CUP_2026_DATA = {
           "fifa_code": "SUI",
           "groups": "B",
           "team_id": "8",
-          "mp": 3,
+          "mp": 0,
           "w": 0,
-          "d": 3,
+          "d": 0,
           "l": 0,
           "gf": 0,
           "ga": 0,
           "gd": 0,
-          "pts": 3
+          "pts": 0
         },
         {
           "id": "7",
@@ -522,14 +522,14 @@ const WORLD_CUP_2026_DATA = {
           "fifa_code": "QAT",
           "groups": "B",
           "team_id": "7",
-          "mp": 3,
+          "mp": 0,
           "w": 0,
-          "d": 3,
+          "d": 0,
           "l": 0,
           "gf": 0,
           "ga": 0,
           "gd": 0,
-          "pts": 3
+          "pts": 0
         }
       ]
     },
@@ -544,14 +544,14 @@ const WORLD_CUP_2026_DATA = {
           "fifa_code": "BRA",
           "groups": "C",
           "team_id": "9",
-          "mp": 3,
+          "mp": 0,
           "w": 0,
-          "d": 3,
+          "d": 0,
           "l": 0,
           "gf": 0,
           "ga": 0,
           "gd": 0,
-          "pts": 3
+          "pts": 0
         },
         {
           "id": "10",
@@ -561,14 +561,14 @@ const WORLD_CUP_2026_DATA = {
           "fifa_code": "MAR",
           "groups": "C",
           "team_id": "10",
-          "mp": 3,
+          "mp": 0,
           "w": 0,
-          "d": 3,
+          "d": 0,
           "l": 0,
           "gf": 0,
           "ga": 0,
           "gd": 0,
-          "pts": 3
+          "pts": 0
         },
         {
           "id": "11",
@@ -578,14 +578,14 @@ const WORLD_CUP_2026_DATA = {
           "fifa_code": "HAI",
           "groups": "C",
           "team_id": "11",
-          "mp": 3,
+          "mp": 0,
           "w": 0,
-          "d": 3,
+          "d": 0,
           "l": 0,
           "gf": 0,
           "ga": 0,
           "gd": 0,
-          "pts": 3
+          "pts": 0
         },
         {
           "id": "12",
@@ -595,14 +595,14 @@ const WORLD_CUP_2026_DATA = {
           "fifa_code": "SCO",
           "groups": "C",
           "team_id": "12",
-          "mp": 3,
+          "mp": 0,
           "w": 0,
-          "d": 3,
+          "d": 0,
           "l": 0,
           "gf": 0,
           "ga": 0,
           "gd": 0,
-          "pts": 3
+          "pts": 0
         }
       ]
     },
@@ -617,14 +617,14 @@ const WORLD_CUP_2026_DATA = {
           "fifa_code": "USA",
           "groups": "D",
           "team_id": "13",
-          "mp": 3,
+          "mp": 0,
           "w": 0,
-          "d": 3,
+          "d": 0,
           "l": 0,
           "gf": 0,
           "ga": 0,
           "gd": 0,
-          "pts": 3
+          "pts": 0
         },
         {
           "id": "15",
@@ -634,14 +634,14 @@ const WORLD_CUP_2026_DATA = {
           "fifa_code": "AUS",
           "groups": "D",
           "team_id": "15",
-          "mp": 3,
+          "mp": 0,
           "w": 0,
-          "d": 3,
+          "d": 0,
           "l": 0,
           "gf": 0,
           "ga": 0,
           "gd": 0,
-          "pts": 3
+          "pts": 0
         },
         {
           "id": "14",
@@ -651,14 +651,14 @@ const WORLD_CUP_2026_DATA = {
           "fifa_code": "PAR",
           "groups": "D",
           "team_id": "14",
-          "mp": 3,
+          "mp": 0,
           "w": 0,
-          "d": 3,
+          "d": 0,
           "l": 0,
           "gf": 0,
           "ga": 0,
           "gd": 0,
-          "pts": 3
+          "pts": 0
         },
         {
           "id": "16",
@@ -668,14 +668,14 @@ const WORLD_CUP_2026_DATA = {
           "fifa_code": "TUR",
           "groups": "D",
           "team_id": "16",
-          "mp": 3,
+          "mp": 0,
           "w": 0,
-          "d": 3,
+          "d": 0,
           "l": 0,
           "gf": 0,
           "ga": 0,
           "gd": 0,
-          "pts": 3
+          "pts": 0
         }
       ]
     },
@@ -690,14 +690,14 @@ const WORLD_CUP_2026_DATA = {
           "fifa_code": "GER",
           "groups": "E",
           "team_id": "17",
-          "mp": 3,
+          "mp": 0,
           "w": 0,
-          "d": 3,
+          "d": 0,
           "l": 0,
           "gf": 0,
           "ga": 0,
           "gd": 0,
-          "pts": 3
+          "pts": 0
         },
         {
           "id": "18",
@@ -707,14 +707,14 @@ const WORLD_CUP_2026_DATA = {
           "fifa_code": "CUR",
           "groups": "E",
           "team_id": "18",
-          "mp": 3,
+          "mp": 0,
           "w": 0,
-          "d": 3,
+          "d": 0,
           "l": 0,
           "gf": 0,
           "ga": 0,
           "gd": 0,
-          "pts": 3
+          "pts": 0
         },
         {
           "id": "20",
@@ -724,14 +724,14 @@ const WORLD_CUP_2026_DATA = {
           "fifa_code": "ECU",
           "groups": "E",
           "team_id": "20",
-          "mp": 3,
+          "mp": 0,
           "w": 0,
-          "d": 3,
+          "d": 0,
           "l": 0,
           "gf": 0,
           "ga": 0,
           "gd": 0,
-          "pts": 3
+          "pts": 0
         },
         {
           "id": "19",
@@ -741,14 +741,14 @@ const WORLD_CUP_2026_DATA = {
           "fifa_code": "CIV",
           "groups": "E",
           "team_id": "19",
-          "mp": 3,
+          "mp": 0,
           "w": 0,
-          "d": 3,
+          "d": 0,
           "l": 0,
           "gf": 0,
           "ga": 0,
           "gd": 0,
-          "pts": 3
+          "pts": 0
         }
       ]
     },
@@ -763,14 +763,14 @@ const WORLD_CUP_2026_DATA = {
           "fifa_code": "NED",
           "groups": "F",
           "team_id": "21",
-          "mp": 3,
+          "mp": 0,
           "w": 0,
-          "d": 3,
+          "d": 0,
           "l": 0,
           "gf": 0,
           "ga": 0,
           "gd": 0,
-          "pts": 3
+          "pts": 0
         },
         {
           "id": "23",
@@ -780,14 +780,14 @@ const WORLD_CUP_2026_DATA = {
           "fifa_code": "SWE",
           "groups": "F",
           "team_id": "23",
-          "mp": 3,
+          "mp": 0,
           "w": 0,
-          "d": 3,
+          "d": 0,
           "l": 0,
           "gf": 0,
           "ga": 0,
           "gd": 0,
-          "pts": 3
+          "pts": 0
         },
         {
           "id": "22",
@@ -797,14 +797,14 @@ const WORLD_CUP_2026_DATA = {
           "fifa_code": "JPN",
           "groups": "F",
           "team_id": "22",
-          "mp": 3,
+          "mp": 0,
           "w": 0,
-          "d": 3,
+          "d": 0,
           "l": 0,
           "gf": 0,
           "ga": 0,
           "gd": 0,
-          "pts": 3
+          "pts": 0
         },
         {
           "id": "24",
@@ -814,14 +814,14 @@ const WORLD_CUP_2026_DATA = {
           "fifa_code": "TUN",
           "groups": "F",
           "team_id": "24",
-          "mp": 3,
+          "mp": 0,
           "w": 0,
-          "d": 3,
+          "d": 0,
           "l": 0,
           "gf": 0,
           "ga": 0,
           "gd": 0,
-          "pts": 3
+          "pts": 0
         }
       ]
     },
@@ -836,14 +836,14 @@ const WORLD_CUP_2026_DATA = {
           "fifa_code": "BEL",
           "groups": "G",
           "team_id": "25",
-          "mp": 3,
+          "mp": 0,
           "w": 0,
-          "d": 3,
+          "d": 0,
           "l": 0,
           "gf": 0,
           "ga": 0,
           "gd": 0,
-          "pts": 3
+          "pts": 0
         },
         {
           "id": "27",
@@ -853,14 +853,14 @@ const WORLD_CUP_2026_DATA = {
           "fifa_code": "IRN",
           "groups": "G",
           "team_id": "27",
-          "mp": 3,
+          "mp": 0,
           "w": 0,
-          "d": 3,
+          "d": 0,
           "l": 0,
           "gf": 0,
           "ga": 0,
           "gd": 0,
-          "pts": 3
+          "pts": 0
         },
         {
           "id": "26",
@@ -870,14 +870,14 @@ const WORLD_CUP_2026_DATA = {
           "fifa_code": "EGY",
           "groups": "G",
           "team_id": "26",
-          "mp": 3,
+          "mp": 0,
           "w": 0,
-          "d": 3,
+          "d": 0,
           "l": 0,
           "gf": 0,
           "ga": 0,
           "gd": 0,
-          "pts": 3
+          "pts": 0
         },
         {
           "id": "28",
@@ -887,14 +887,14 @@ const WORLD_CUP_2026_DATA = {
           "fifa_code": "NZL",
           "groups": "G",
           "team_id": "28",
-          "mp": 3,
+          "mp": 0,
           "w": 0,
-          "d": 3,
+          "d": 0,
           "l": 0,
           "gf": 0,
           "ga": 0,
           "gd": 0,
-          "pts": 3
+          "pts": 0
         }
       ]
     },
@@ -909,14 +909,14 @@ const WORLD_CUP_2026_DATA = {
           "fifa_code": "ESP",
           "groups": "H",
           "team_id": "29",
-          "mp": 3,
+          "mp": 0,
           "w": 0,
-          "d": 3,
+          "d": 0,
           "l": 0,
           "gf": 0,
           "ga": 0,
           "gd": 0,
-          "pts": 3
+          "pts": 0
         },
         {
           "id": "31",
@@ -926,14 +926,14 @@ const WORLD_CUP_2026_DATA = {
           "fifa_code": "KSA",
           "groups": "H",
           "team_id": "31",
-          "mp": 3,
+          "mp": 0,
           "w": 0,
-          "d": 3,
+          "d": 0,
           "l": 0,
           "gf": 0,
           "ga": 0,
           "gd": 0,
-          "pts": 3
+          "pts": 0
         },
         {
           "id": "32",
@@ -943,14 +943,14 @@ const WORLD_CUP_2026_DATA = {
           "fifa_code": "URU",
           "groups": "H",
           "team_id": "32",
-          "mp": 3,
+          "mp": 0,
           "w": 0,
-          "d": 3,
+          "d": 0,
           "l": 0,
           "gf": 0,
           "ga": 0,
           "gd": 0,
-          "pts": 3
+          "pts": 0
         },
         {
           "id": "30",
@@ -960,14 +960,14 @@ const WORLD_CUP_2026_DATA = {
           "fifa_code": "CPV",
           "groups": "H",
           "team_id": "30",
-          "mp": 3,
+          "mp": 0,
           "w": 0,
-          "d": 3,
+          "d": 0,
           "l": 0,
           "gf": 0,
           "ga": 0,
           "gd": 0,
-          "pts": 3
+          "pts": 0
         }
       ]
     },
@@ -982,14 +982,14 @@ const WORLD_CUP_2026_DATA = {
           "fifa_code": "FRA",
           "groups": "I",
           "team_id": "33",
-          "mp": 3,
+          "mp": 0,
           "w": 0,
-          "d": 3,
+          "d": 0,
           "l": 0,
           "gf": 0,
           "ga": 0,
           "gd": 0,
-          "pts": 3
+          "pts": 0
         },
         {
           "id": "35",
@@ -999,14 +999,14 @@ const WORLD_CUP_2026_DATA = {
           "fifa_code": "IRQ",
           "groups": "I",
           "team_id": "35",
-          "mp": 3,
+          "mp": 0,
           "w": 0,
-          "d": 3,
+          "d": 0,
           "l": 0,
           "gf": 0,
           "ga": 0,
           "gd": 0,
-          "pts": 3
+          "pts": 0
         },
         {
           "id": "36",
@@ -1016,14 +1016,14 @@ const WORLD_CUP_2026_DATA = {
           "fifa_code": "NOR",
           "groups": "I",
           "team_id": "36",
-          "mp": 3,
+          "mp": 0,
           "w": 0,
-          "d": 3,
+          "d": 0,
           "l": 0,
           "gf": 0,
           "ga": 0,
           "gd": 0,
-          "pts": 3
+          "pts": 0
         },
         {
           "id": "34",
@@ -1033,14 +1033,14 @@ const WORLD_CUP_2026_DATA = {
           "fifa_code": "SEN",
           "groups": "I",
           "team_id": "34",
-          "mp": 3,
+          "mp": 0,
           "w": 0,
-          "d": 3,
+          "d": 0,
           "l": 0,
           "gf": 0,
           "ga": 0,
           "gd": 0,
-          "pts": 3
+          "pts": 0
         }
       ]
     },
@@ -1055,14 +1055,14 @@ const WORLD_CUP_2026_DATA = {
           "fifa_code": "ARG",
           "groups": "J",
           "team_id": "37",
-          "mp": 3,
+          "mp": 0,
           "w": 0,
-          "d": 3,
+          "d": 0,
           "l": 0,
           "gf": 0,
           "ga": 0,
           "gd": 0,
-          "pts": 3
+          "pts": 0
         },
         {
           "id": "39",
@@ -1072,14 +1072,14 @@ const WORLD_CUP_2026_DATA = {
           "fifa_code": "AUT",
           "groups": "J",
           "team_id": "39",
-          "mp": 3,
+          "mp": 0,
           "w": 0,
-          "d": 3,
+          "d": 0,
           "l": 0,
           "gf": 0,
           "ga": 0,
           "gd": 0,
-          "pts": 3
+          "pts": 0
         },
         {
           "id": "38",
@@ -1089,14 +1089,14 @@ const WORLD_CUP_2026_DATA = {
           "fifa_code": "ALG",
           "groups": "J",
           "team_id": "38",
-          "mp": 3,
+          "mp": 0,
           "w": 0,
-          "d": 3,
+          "d": 0,
           "l": 0,
           "gf": 0,
           "ga": 0,
           "gd": 0,
-          "pts": 3
+          "pts": 0
         },
         {
           "id": "40",
@@ -1106,14 +1106,14 @@ const WORLD_CUP_2026_DATA = {
           "fifa_code": "JOR",
           "groups": "J",
           "team_id": "40",
-          "mp": 3,
+          "mp": 0,
           "w": 0,
-          "d": 3,
+          "d": 0,
           "l": 0,
           "gf": 0,
           "ga": 0,
           "gd": 0,
-          "pts": 3
+          "pts": 0
         }
       ]
     },
@@ -1128,14 +1128,14 @@ const WORLD_CUP_2026_DATA = {
           "fifa_code": "COD",
           "groups": "K",
           "team_id": "42",
-          "mp": 3,
+          "mp": 0,
           "w": 0,
-          "d": 3,
+          "d": 0,
           "l": 0,
           "gf": 0,
           "ga": 0,
           "gd": 0,
-          "pts": 3
+          "pts": 0
         },
         {
           "id": "44",
@@ -1145,14 +1145,14 @@ const WORLD_CUP_2026_DATA = {
           "fifa_code": "COL",
           "groups": "K",
           "team_id": "44",
-          "mp": 3,
+          "mp": 0,
           "w": 0,
-          "d": 3,
+          "d": 0,
           "l": 0,
           "gf": 0,
           "ga": 0,
           "gd": 0,
-          "pts": 3
+          "pts": 0
         },
         {
           "id": "43",
@@ -1162,14 +1162,14 @@ const WORLD_CUP_2026_DATA = {
           "fifa_code": "UZB",
           "groups": "K",
           "team_id": "43",
-          "mp": 3,
+          "mp": 0,
           "w": 0,
-          "d": 3,
+          "d": 0,
           "l": 0,
           "gf": 0,
           "ga": 0,
           "gd": 0,
-          "pts": 3
+          "pts": 0
         },
         {
           "id": "41",
@@ -1179,14 +1179,14 @@ const WORLD_CUP_2026_DATA = {
           "fifa_code": "POR",
           "groups": "K",
           "team_id": "41",
-          "mp": 3,
+          "mp": 0,
           "w": 0,
-          "d": 3,
+          "d": 0,
           "l": 0,
           "gf": 0,
           "ga": 0,
           "gd": 0,
-          "pts": 3
+          "pts": 0
         }
       ]
     },
@@ -1201,14 +1201,14 @@ const WORLD_CUP_2026_DATA = {
           "fifa_code": "GHA",
           "groups": "L",
           "team_id": "47",
-          "mp": 3,
+          "mp": 0,
           "w": 0,
-          "d": 3,
+          "d": 0,
           "l": 0,
           "gf": 0,
           "ga": 0,
           "gd": 0,
-          "pts": 3
+          "pts": 0
         },
         {
           "id": "46",
@@ -1218,14 +1218,14 @@ const WORLD_CUP_2026_DATA = {
           "fifa_code": "CRO",
           "groups": "L",
           "team_id": "46",
-          "mp": 3,
+          "mp": 0,
           "w": 0,
-          "d": 3,
+          "d": 0,
           "l": 0,
           "gf": 0,
           "ga": 0,
           "gd": 0,
-          "pts": 3
+          "pts": 0
         },
         {
           "id": "45",
@@ -1235,14 +1235,14 @@ const WORLD_CUP_2026_DATA = {
           "fifa_code": "ENG",
           "groups": "L",
           "team_id": "45",
-          "mp": 3,
+          "mp": 0,
           "w": 0,
-          "d": 3,
+          "d": 0,
           "l": 0,
           "gf": 0,
           "ga": 0,
           "gd": 0,
-          "pts": 3
+          "pts": 0
         },
         {
           "id": "48",
@@ -1252,14 +1252,14 @@ const WORLD_CUP_2026_DATA = {
           "fifa_code": "PAN",
           "groups": "L",
           "team_id": "48",
-          "mp": 3,
+          "mp": 0,
           "w": 0,
-          "d": 3,
+          "d": 0,
           "l": 0,
           "gf": 0,
           "ga": 0,
           "gd": 0,
-          "pts": 3
+          "pts": 0
         }
       ]
     }

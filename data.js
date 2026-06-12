@@ -1817,6 +1817,11 @@ const WORLD_CUP_2026_DATA = {
             "team_B_value": 11
           },
           {
+            "type": "Taç Atışı",
+            "team_A_value": 21,
+            "team_B_value": 11
+          },
+          {
             "type": "Toplam Pas",
             "team_A_value": 520,
             "team_B_value": 334
@@ -2223,7 +2228,7 @@ const WORLD_CUP_2026_DATA = {
             {
               "name": "Hyeon-Gyu Oh",
               "match_name": "Hyeon-Gyu Oh",
-              "first_name": "Hyun-Gyu",
+              "first_name": "Hyeon-Gyu",
               "last_name": "Oh",
               "formation_name": "Hyeon-Gyu Oh",
               "number": "18",
@@ -2615,6 +2620,11 @@ const WORLD_CUP_2026_DATA = {
           {
             "type": "Faul",
             "team_A_value": 9,
+            "team_B_value": 16
+          },
+          {
+            "type": "Taç Atışı",
+            "team_A_value": 26,
             "team_B_value": 16
           },
           {
@@ -3300,78 +3310,78 @@ const WORLD_CUP_2026_DATA = {
         "a": [
           {
             "type": "Topla Oynama",
-            "team_A_value": 66,
-            "team_B_value": 34
+            "team_A_value": 61,
+            "team_B_value": 39
           },
           {
             "type": "Gol Beklentisi (xG)",
-            "team_A_value": 0.64,
-            "team_B_value": 0.77
+            "team_A_value": 1.25,
+            "team_B_value": 0.98
           },
           {
             "type": "Rakip Ceza Sahasında Topla Buluşma (RCS)",
-            "team_A_value": 21,
-            "team_B_value": 7
+            "team_A_value": 38,
+            "team_B_value": 14
           },
           {
             "type": "Toplam Şut",
-            "team_A_value": 7,
-            "team_B_value": 5
+            "team_A_value": 13,
+            "team_B_value": 8
           },
           {
             "type": "İsabetli Şut",
-            "team_A_value": 1,
-            "team_B_value": 2
+            "team_A_value": 4,
+            "team_B_value": 3
           },
           {
             "type": "Korner",
             "team_A_value": 9,
-            "team_B_value": 1
+            "team_B_value": 4
           },
           {
             "type": "Faul",
-            "team_A_value": 4,
-            "team_B_value": 8
+            "team_A_value": 10,
+            "team_B_value": 20
           },
           {
             "type": "Taç Atışı",
-            "team_A_value": 16,
-            "team_B_value": 17
+            "team_A_value": 32,
+            "team_B_value": 26
           },
           {
             "type": "Toplam Pas",
-            "team_A_value": 219,
-            "team_B_value": 118
+            "team_A_value": 417,
+            "team_B_value": 268
           },
           {
             "type": "İsabetli Pas",
-            "team_A_value": 164,
-            "team_B_value": 79
+            "team_A_value": 310,
+            "team_B_value": 170
           },
           {
             "type": "Toplam Orta",
-            "team_A_value": 17,
-            "team_B_value": 5
+            "team_A_value": 24,
+            "team_B_value": 10
           },
           {
             "type": "Uzaklaştırma",
-            "team_A_value": 10,
-            "team_B_value": 42
+            "team_A_value": 21,
+            "team_B_value": 71
           },
           {
             "type": "Ofsayt",
-            "team_A_value": 0,
+            "team_A_value": 1,
             "team_B_value": 0
           },
           {
             "type": "İsabetli Orta",
             "team_A_value": 5,
-            "team_B_value": 4
+            "team_B_value": 6
           },
           {
             "type": "Sarı Kart",
-            "team_A_value": 1,
-            "team_B_value": 2
+            "team_A_value": 2,
+            "team_B_value": 3
           },
           {
             "type": "İkinci Sarıdan Kırmızı Kart",
@@ -3386,6 +3396,42 @@ const WORLD_CUP_2026_DATA = {
         ]
       },
       "events": [
+        {
+          "type": "YC",
+          "period": "Second Half",
+          "second": 5400,
+          "second_extra": 180,
+          "minute": 90,
+          "minute_extra": 3,
+          "team": "B",
+          "player": {
+            "mid": "9e0e46c2-ecdf-d4a3-48c0-1b175f4953c7",
+            "id": 435185,
+            "uuid": "3ujlvpg5xlbtexe2h2oy5qcx5",
+            "nationality_id": 33,
+            "name": "N. Katic",
+            "match_name": "N. Katic",
+            "first_name": "Nikola",
+            "last_name": "Katic"
+          }
+        },
+        {
+          "type": "YC",
+          "period": "Second Half",
+          "second": 3180,
+          "minute": 53,
+          "team": "A",
+          "player": {
+            "mid": "4467b373-4274-b910-3eed-a017e5bdef50",
+            "id": 761799,
+            "uuid": "4ujt46jspzihas195g6kyjy8k",
+            "nationality_id": 43,
+            "name": "L. De Fougerolles",
+            "match_name": "L. De Fougerolles",
+            "first_name": "Luc",
+            "last_name": "De Fougerolles"
+          }
+        },
         {
           "type": "YC",
           "period": "First Half",

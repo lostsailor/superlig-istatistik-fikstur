@@ -710,9 +710,10 @@ async function syncData() {
       const isLive = game.time_elapsed !== "finished" && game.time_elapsed !== "notstarted";
       const needsFetch = (game.finished && (!cached || !cached.events || !cached.lineup || !cached.stat_team_detailed)) || isLive;
       
-      if (needsFetch && game.sahadan_id) {
+      const sahadanId = (game.id && String(game.id).length > 10) ? game.id : null;
+      if (needsFetch && sahadanId) {
         console.log(`Detay (${cached ? 'Güncelleniyor' : 'Yeni'}) [isLive=${isLive}]: ${game.home_team_name_tr} vs ${game.away_team_name_tr}`);
-        const dd = await fetchMatchDetail(game.sahadan_id, isLive);
+        const dd = await fetchMatchDetail(sahadanId, isLive);
         if (dd) {
           matchDetailsCache[game.id] = dd;
           newDetails++;

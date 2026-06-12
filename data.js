@@ -1170,8 +1170,7 @@ const WORLD_CUP_2026_DATA = {
   ],
   "games": [
     {
-      "id": "1",
-      "sahadan_id": "4tcpns1nwyc0jtpucgzj9dp90",
+      "id": "4tcpns1nwyc0jtpucgzj9dp90",
       "home_team_id": "1",
       "away_team_id": "2",
       "home_team_name_en": "Mexico",
@@ -1972,8 +1971,7 @@ const WORLD_CUP_2026_DATA = {
       ]
     },
     {
-      "id": "2",
-      "sahadan_id": "9hjlhmip7tn4qgpwr47txpafo",
+      "id": "9hjlhmip7tn4qgpwr47txpafo",
       "home_team_id": "3",
       "away_team_id": "4",
       "home_team_name_en": "South Korea",
@@ -2689,8 +2687,7 @@ const WORLD_CUP_2026_DATA = {
       ]
     },
     {
-      "id": "3",
-      "sahadan_id": "y1ow9ht5baxn64i01hq9moes",
+      "id": "y1ow9ht5baxn64i01hq9moes",
       "home_team_id": "5",
       "away_team_id": "6",
       "home_team_name_en": "Canada",
@@ -3445,8 +3442,7 @@ const WORLD_CUP_2026_DATA = {
       ]
     },
     {
-      "id": "4",
-      "sahadan_id": "49wa9ymnt0trv2mjruak556ok",
+      "id": "49wa9ymnt0trv2mjruak556ok",
       "home_team_id": "13",
       "away_team_id": "14",
       "home_team_name_en": "United States",
@@ -3473,8 +3469,7 @@ const WORLD_CUP_2026_DATA = {
       "away_team_label": "PAR"
     },
     {
-      "id": "5",
-      "sahadan_id": "cydmo9vjfyvaefav6t1531xck",
+      "id": "cydmo9vjfyvaefav6t1531xck",
       "home_team_id": "11",
       "away_team_id": "12",
       "home_team_name_en": "Haiti",
@@ -3501,8 +3496,7 @@ const WORLD_CUP_2026_DATA = {
       "away_team_label": "SCO"
     },
     {
-      "id": "6",
-      "sahadan_id": "5d1c5lu90p9hhk82c0kcp05qs",
+      "id": "5d1c5lu90p9hhk82c0kcp05qs",
       "home_team_id": "15",
       "away_team_id": "16",
       "home_team_name_en": "Australia",
@@ -3529,8 +3523,7 @@ const WORLD_CUP_2026_DATA = {
       "away_team_label": "TUR"
     },
     {
-      "id": "7",
-      "sahadan_id": "ar8b186wqraa80u0vpi2e4nis",
+      "id": "ar8b186wqraa80u0vpi2e4nis",
       "home_team_id": "9",
       "away_team_id": "10",
       "home_team_name_en": "Brazil",
@@ -3557,8 +3550,7 @@ const WORLD_CUP_2026_DATA = {
       "away_team_label": "MAR"
     },
     {
-      "id": "8",
-      "sahadan_id": "2lzhf44ic9g2dj0l29fji2xw4",
+      "id": "2lzhf44ic9g2dj0l29fji2xw4",
       "home_team_id": "7",
       "away_team_id": "8",
       "home_team_name_en": "Qatar",
@@ -3585,8 +3577,7 @@ const WORLD_CUP_2026_DATA = {
       "away_team_label": "SUI"
     },
     {
-      "id": "9",
-      "sahadan_id": "ddupm8zbfndp54r8uru3obf9w",
+      "id": "ddupm8zbfndp54r8uru3obf9w",
       "home_team_id": "19",
       "away_team_id": "20",
       "home_team_name_en": "Ivory Coast",
@@ -3613,8 +3604,7 @@ const WORLD_CUP_2026_DATA = {
       "away_team_label": "ECU"
     },
     {
-      "id": "10",
-      "sahadan_id": "cjc09ujyfc1ks4blsyl8hbfv8",
+      "id": "cjc09ujyfc1ks4blsyl8hbfv8",
       "home_team_id": "17",
       "away_team_id": "18",
       "home_team_name_en": "Germany",
@@ -3641,8 +3631,7 @@ const WORLD_CUP_2026_DATA = {
       "away_team_label": "CUR"
     },
     {
-      "id": "11",
-      "sahadan_id": "424kyd0drjm51x8dsauowgpp0",
+      "id": "424kyd0drjm51x8dsauowgpp0",
       "home_team_id": "21",
       "away_team_id": "22",
       "home_team_name_en": "Netherlands",
@@ -3669,8 +3658,7 @@ const WORLD_CUP_2026_DATA = {
       "away_team_label": "JPN"
     },
     {
-      "id": "12",
-      "sahadan_id": "4v4v3ge0g7tm1w9uzpoehmzh0",
+      "id": "4v4v3ge0g7tm1w9uzpoehmzh0",
       "home_team_id": "23",
       "away_team_id": "24",
       "home_team_name_en": "Sweden",
@@ -3697,8 +3685,7 @@ const WORLD_CUP_2026_DATA = {
       "away_team_label": "TUN"
     },
     {
-      "id": "13",
-      "sahadan_id": "c4kuk30dj016i6gjwxw4clnh0",
+      "id": "c4kuk30dj016i6gjwxw4clnh0",
       "home_team_id": "27",
       "away_team_id": "28",
       "home_team_name_en": "Iran",
@@ -3725,8 +3712,7 @@ const WORLD_CUP_2026_DATA = {
       "away_team_label": "NZL"
     },
     {
-      "id": "14",
-      "sahadan_id": "66cem7lh6o8ckkfxp4tao7o5w",
+      "id": "66cem7lh6o8ckkfxp4tao7o5w",
       "home_team_id": "29",
       "away_team_id": "30",
       "home_team_name_en": "Spain",
@@ -3753,8 +3739,7 @@ const WORLD_CUP_2026_DATA = {
       "away_team_label": "CPV"
     },
     {
-      "id": "15",
-      "sahadan_id": "aw4mhrfav7b5r7d4lc6dwz1g4",
+      "id": "aw4mhrfav7b5r7d4lc6dwz1g4",
       "home_team_id": "25",
       "away_team_id": "26",
       "home_team_name_en": "Belgium",
@@ -3781,8 +3766,7 @@ const WORLD_CUP_2026_DATA = {
       "away_team_label": "EGY"
     },
     {
-      "id": "16",
-      "sahadan_id": "6zuh8kndp7mz2j33tqajmos2c",
+      "id": "6zuh8kndp7mz2j33tqajmos2c",
       "home_team_id": "31",
       "away_team_id": "32",
       "home_team_name_en": "Saudi Arabia",
@@ -3809,8 +3793,7 @@ const WORLD_CUP_2026_DATA = {
       "away_team_label": "URU"
     },
     {
-      "id": "17",
-      "sahadan_id": "cqsflhc7vaul90l2d4ipzzzmc",
+      "id": "cqsflhc7vaul90l2d4ipzzzmc",
       "home_team_id": "33",
       "away_team_id": "34",
       "home_team_name_en": "France",
@@ -3837,8 +3820,7 @@ const WORLD_CUP_2026_DATA = {
       "away_team_label": "SEN"
     },
     {
-      "id": "18",
-      "sahadan_id": "dk9nrrzts19sez2hpbxx7soic",
+      "id": "dk9nrrzts19sez2hpbxx7soic",
       "home_team_id": "35",
       "away_team_id": "36",
       "home_team_name_en": "Iraq",
@@ -3865,8 +3847,7 @@ const WORLD_CUP_2026_DATA = {
       "away_team_label": "NOR"
     },
     {
-      "id": "19",
-      "sahadan_id": "55108ze2r7d8dgkmcauepuhp0",
+      "id": "55108ze2r7d8dgkmcauepuhp0",
       "home_team_id": "37",
       "away_team_id": "38",
       "home_team_name_en": "Argentina",
@@ -3893,8 +3874,7 @@ const WORLD_CUP_2026_DATA = {
       "away_team_label": "ALG"
     },
     {
-      "id": "20",
-      "sahadan_id": "67uqo1wgdcka1yxqltbiqxn9w",
+      "id": "67uqo1wgdcka1yxqltbiqxn9w",
       "home_team_id": "39",
       "away_team_id": "40",
       "home_team_name_en": "Austria",
@@ -3921,8 +3901,7 @@ const WORLD_CUP_2026_DATA = {
       "away_team_label": "JOR"
     },
     {
-      "id": "21",
-      "sahadan_id": "aa59tfi9hkmjec05olroia13o",
+      "id": "aa59tfi9hkmjec05olroia13o",
       "home_team_id": "41",
       "away_team_id": "42",
       "home_team_name_en": "Portugal",
@@ -3949,8 +3928,7 @@ const WORLD_CUP_2026_DATA = {
       "away_team_label": "COD"
     },
     {
-      "id": "22",
-      "sahadan_id": "jx85i5ao3wvsb8opsu0ic1sk",
+      "id": "jx85i5ao3wvsb8opsu0ic1sk",
       "home_team_id": "45",
       "away_team_id": "46",
       "home_team_name_en": "England",
@@ -3977,8 +3955,7 @@ const WORLD_CUP_2026_DATA = {
       "away_team_label": "CRO"
     },
     {
-      "id": "23",
-      "sahadan_id": "b6gp5y32kvgossb0feqipr8r8",
+      "id": "b6gp5y32kvgossb0feqipr8r8",
       "home_team_id": "43",
       "away_team_id": "44",
       "home_team_name_en": "Uzbekistan",
@@ -4005,8 +3982,7 @@ const WORLD_CUP_2026_DATA = {
       "away_team_label": "COL"
     },
     {
-      "id": "24",
-      "sahadan_id": "1ewge3gy7siiimkd64tawg1zo",
+      "id": "1ewge3gy7siiimkd64tawg1zo",
       "home_team_id": "47",
       "away_team_id": "48",
       "home_team_name_en": "Ghana",
@@ -4033,8 +4009,7 @@ const WORLD_CUP_2026_DATA = {
       "away_team_label": "PAN"
     },
     {
-      "id": "25",
-      "sahadan_id": "bdoe50pj6ug3jrc5to1j8st1w",
+      "id": "bdoe50pj6ug3jrc5to1j8st1w",
       "home_team_id": "1",
       "away_team_id": "3",
       "home_team_name_en": "Mexico",
@@ -4061,8 +4036,7 @@ const WORLD_CUP_2026_DATA = {
       "away_team_label": "KOR"
     },
     {
-      "id": "26",
-      "sahadan_id": "4mov5r6nivdn6dhlmb9hv5q1g",
+      "id": "4mov5r6nivdn6dhlmb9hv5q1g",
       "home_team_id": "8",
       "away_team_id": "6",
       "home_team_name_en": "Switzerland",
@@ -4089,8 +4063,7 @@ const WORLD_CUP_2026_DATA = {
       "away_team_label": "BIH"
     },
     {
-      "id": "27",
-      "sahadan_id": "3luqmzpzk0qoh2tc96utv0ges",
+      "id": "3luqmzpzk0qoh2tc96utv0ges",
       "home_team_id": "5",
       "away_team_id": "7",
       "home_team_name_en": "Canada",
@@ -4117,8 +4090,7 @@ const WORLD_CUP_2026_DATA = {
       "away_team_label": "QAT"
     },
     {
-      "id": "28",
-      "sahadan_id": "cbn3r0bwd3283f8bj4vuvifis",
+      "id": "cbn3r0bwd3283f8bj4vuvifis",
       "home_team_id": "4",
       "away_team_id": "2",
       "home_team_name_en": "Czech Republic",
@@ -4145,8 +4117,7 @@ const WORLD_CUP_2026_DATA = {
       "away_team_label": "RSA"
     },
     {
-      "id": "29",
-      "sahadan_id": "e6dmlhi5t34w58liv12sp591w",
+      "id": "e6dmlhi5t34w58liv12sp591w",
       "home_team_id": "9",
       "away_team_id": "11",
       "home_team_name_en": "Brazil",
@@ -4173,8 +4144,7 @@ const WORLD_CUP_2026_DATA = {
       "away_team_label": "HAI"
     },
     {
-      "id": "30",
-      "sahadan_id": "exuljwp9gd116hkf5sox4q5g4",
+      "id": "exuljwp9gd116hkf5sox4q5g4",
       "home_team_id": "12",
       "away_team_id": "10",
       "home_team_name_en": "Scotland",
@@ -4201,8 +4171,7 @@ const WORLD_CUP_2026_DATA = {
       "away_team_label": "MAR"
     },
     {
-      "id": "31",
-      "sahadan_id": "6dt4a73k05gldmswzc3tgxmvo",
+      "id": "6dt4a73k05gldmswzc3tgxmvo",
       "home_team_id": "13",
       "away_team_id": "15",
       "home_team_name_en": "United States",
@@ -4229,8 +4198,7 @@ const WORLD_CUP_2026_DATA = {
       "away_team_label": "AUS"
     },
     {
-      "id": "32",
-      "sahadan_id": "7evssbq9air6phyr658hcanmc",
+      "id": "7evssbq9air6phyr658hcanmc",
       "home_team_id": "16",
       "away_team_id": "14",
       "home_team_name_en": "Turkey",
@@ -4257,8 +4225,7 @@ const WORLD_CUP_2026_DATA = {
       "away_team_label": "PAR"
     },
     {
-      "id": "33",
-      "sahadan_id": "ecp6v27q48jj6um9odhcahjbo",
+      "id": "ecp6v27q48jj6um9odhcahjbo",
       "home_team_id": "17",
       "away_team_id": "19",
       "home_team_name_en": "Germany",
@@ -4285,8 +4252,7 @@ const WORLD_CUP_2026_DATA = {
       "away_team_label": "CIV"
     },
     {
-      "id": "34",
-      "sahadan_id": "9erlmm2s3kapioujs9clvcic",
+      "id": "9erlmm2s3kapioujs9clvcic",
       "home_team_id": "20",
       "away_team_id": "18",
       "home_team_name_en": "Ecuador",
@@ -4313,8 +4279,7 @@ const WORLD_CUP_2026_DATA = {
       "away_team_label": "CUR"
     },
     {
-      "id": "35",
-      "sahadan_id": "5nh4gmpiskmsjcy904osi5n2s",
+      "id": "5nh4gmpiskmsjcy904osi5n2s",
       "home_team_id": "21",
       "away_team_id": "23",
       "home_team_name_en": "Netherlands",
@@ -4341,8 +4306,7 @@ const WORLD_CUP_2026_DATA = {
       "away_team_label": "SWE"
     },
     {
-      "id": "36",
-      "sahadan_id": "6c7t9tr9b24qfjwphblk6776c",
+      "id": "6c7t9tr9b24qfjwphblk6776c",
       "home_team_id": "24",
       "away_team_id": "22",
       "home_team_name_en": "Tunisia",
@@ -4369,8 +4333,7 @@ const WORLD_CUP_2026_DATA = {
       "away_team_label": "JPN"
     },
     {
-      "id": "37",
-      "sahadan_id": "cz84ih3b6irraa24kj6kvtz4k",
+      "id": "cz84ih3b6irraa24kj6kvtz4k",
       "home_team_id": "25",
       "away_team_id": "27",
       "home_team_name_en": "Belgium",
@@ -4397,8 +4360,7 @@ const WORLD_CUP_2026_DATA = {
       "away_team_label": "IRN"
     },
     {
-      "id": "38",
-      "sahadan_id": "ds4dbpzuq9s8a87zc84b58w7o",
+      "id": "ds4dbpzuq9s8a87zc84b58w7o",
       "home_team_id": "28",
       "away_team_id": "26",
       "home_team_name_en": "New Zealand",
@@ -4425,8 +4387,7 @@ const WORLD_CUP_2026_DATA = {
       "away_team_label": "EGY"
     },
     {
-      "id": "39",
-      "sahadan_id": "8muyl6d5ahy04fbwarplcg3kk",
+      "id": "8muyl6d5ahy04fbwarplcg3kk",
       "home_team_id": "29",
       "away_team_id": "31",
       "home_team_name_en": "Spain",
@@ -4453,8 +4414,7 @@ const WORLD_CUP_2026_DATA = {
       "away_team_label": "KSA"
     },
     {
-      "id": "40",
-      "sahadan_id": "9ic1j3k1bvdhabxn5crvsx6ac",
+      "id": "9ic1j3k1bvdhabxn5crvsx6ac",
       "home_team_id": "32",
       "away_team_id": "30",
       "home_team_name_en": "Uruguay",
@@ -4481,8 +4441,7 @@ const WORLD_CUP_2026_DATA = {
       "away_team_label": "CPV"
     },
     {
-      "id": "41",
-      "sahadan_id": "emsvcmkqvohy5qmhedopxtus4",
+      "id": "emsvcmkqvohy5qmhedopxtus4",
       "home_team_id": "33",
       "away_team_id": "35",
       "home_team_name_en": "France",
@@ -4509,8 +4468,7 @@ const WORLD_CUP_2026_DATA = {
       "away_team_label": "IRQ"
     },
     {
-      "id": "42",
-      "sahadan_id": "elv88zog1n9ratzzksyfumtw",
+      "id": "elv88zog1n9ratzzksyfumtw",
       "home_team_id": "36",
       "away_team_id": "34",
       "home_team_name_en": "Norway",
@@ -4537,8 +4495,7 @@ const WORLD_CUP_2026_DATA = {
       "away_team_label": "SEN"
     },
     {
-      "id": "43",
-      "sahadan_id": "6zhd6pt8kyzrbkgwq2i2k8u1g",
+      "id": "6zhd6pt8kyzrbkgwq2i2k8u1g",
       "home_team_id": "37",
       "away_team_id": "39",
       "home_team_name_en": "Argentina",
@@ -4565,8 +4522,7 @@ const WORLD_CUP_2026_DATA = {
       "away_team_label": "AUT"
     },
     {
-      "id": "44",
-      "sahadan_id": "7mw80b82sfqh1le7swr7l8zdg",
+      "id": "7mw80b82sfqh1le7swr7l8zdg",
       "home_team_id": "40",
       "away_team_id": "38",
       "home_team_name_en": "Jordan",
@@ -4593,8 +4549,7 @@ const WORLD_CUP_2026_DATA = {
       "away_team_label": "ALG"
     },
     {
-      "id": "45",
-      "sahadan_id": "bwetcq2x65uyp68uztwcuw9hw",
+      "id": "bwetcq2x65uyp68uztwcuw9hw",
       "home_team_id": "41",
       "away_team_id": "43",
       "home_team_name_en": "Portugal",
@@ -4621,8 +4576,7 @@ const WORLD_CUP_2026_DATA = {
       "away_team_label": "UZB"
     },
     {
-      "id": "46",
-      "sahadan_id": "2ypodyawtamo2zzadwm42g9hw",
+      "id": "2ypodyawtamo2zzadwm42g9hw",
       "home_team_id": "48",
       "away_team_id": "46",
       "home_team_name_en": "Panama",
@@ -4649,8 +4603,7 @@ const WORLD_CUP_2026_DATA = {
       "away_team_label": "CRO"
     },
     {
-      "id": "47",
-      "sahadan_id": "csme1qixbyobvbac3o0td9uz8",
+      "id": "csme1qixbyobvbac3o0td9uz8",
       "home_team_id": "44",
       "away_team_id": "42",
       "home_team_name_en": "Colombia",
@@ -4677,8 +4630,7 @@ const WORLD_CUP_2026_DATA = {
       "away_team_label": "COD"
     },
     {
-      "id": "48",
-      "sahadan_id": "28702hpanr32no1vpxmxhbok4",
+      "id": "28702hpanr32no1vpxmxhbok4",
       "home_team_id": "45",
       "away_team_id": "47",
       "home_team_name_en": "England",
@@ -4705,8 +4657,7 @@ const WORLD_CUP_2026_DATA = {
       "away_team_label": "GHA"
     },
     {
-      "id": "49",
-      "sahadan_id": "spvh4xw4rpclalcf1jhsrv2s",
+      "id": "spvh4xw4rpclalcf1jhsrv2s",
       "home_team_id": "12",
       "away_team_id": "9",
       "home_team_name_en": "Scotland",
@@ -4733,8 +4684,7 @@ const WORLD_CUP_2026_DATA = {
       "away_team_label": "BRA"
     },
     {
-      "id": "50",
-      "sahadan_id": "1r744e2q8r9lfwjz888dzxmac",
+      "id": "1r744e2q8r9lfwjz888dzxmac",
       "home_team_id": "10",
       "away_team_id": "11",
       "home_team_name_en": "Morocco",
@@ -4761,8 +4711,7 @@ const WORLD_CUP_2026_DATA = {
       "away_team_label": "HAI"
     },
     {
-      "id": "51",
-      "sahadan_id": "ec5p7nsiix511225m4yfqt250",
+      "id": "ec5p7nsiix511225m4yfqt250",
       "home_team_id": "2",
       "away_team_id": "3",
       "home_team_name_en": "South Africa",
@@ -4789,8 +4738,7 @@ const WORLD_CUP_2026_DATA = {
       "away_team_label": "KOR"
     },
     {
-      "id": "52",
-      "sahadan_id": "d7gajq1bxb1xtvqbuxivlk4r8",
+      "id": "d7gajq1bxb1xtvqbuxivlk4r8",
       "home_team_id": "4",
       "away_team_id": "1",
       "home_team_name_en": "Czech Republic",
@@ -4817,8 +4765,7 @@ const WORLD_CUP_2026_DATA = {
       "away_team_label": "MEX"
     },
     {
-      "id": "53",
-      "sahadan_id": "6eub9tlno07el5y4ajvumqqdw",
+      "id": "6eub9tlno07el5y4ajvumqqdw",
       "home_team_id": "6",
       "away_team_id": "7",
       "home_team_name_en": "Bosnia and Herzegovina",
@@ -4845,8 +4792,7 @@ const WORLD_CUP_2026_DATA = {
       "away_team_label": "QAT"
     },
     {
-      "id": "54",
-      "sahadan_id": "5irko4jg9o9ixmfz8cu3oxjpw",
+      "id": "5irko4jg9o9ixmfz8cu3oxjpw",
       "home_team_id": "8",
       "away_team_id": "5",
       "home_team_name_en": "Switzerland",
@@ -4873,8 +4819,7 @@ const WORLD_CUP_2026_DATA = {
       "away_team_label": "CAN"
     },
     {
-      "id": "55",
-      "sahadan_id": "2kh760gcb6c4liigtebtxtus4",
+      "id": "2kh760gcb6c4liigtebtxtus4",
       "home_team_id": "18",
       "away_team_id": "19",
       "home_team_name_en": "Curaçao",
@@ -4901,8 +4846,7 @@ const WORLD_CUP_2026_DATA = {
       "away_team_label": "CIV"
     },
     {
-      "id": "56",
-      "sahadan_id": "1ela50pkr7ho1l8kbj6a1di50",
+      "id": "1ela50pkr7ho1l8kbj6a1di50",
       "home_team_id": "20",
       "away_team_id": "17",
       "home_team_name_en": "Ecuador",
@@ -4929,8 +4873,7 @@ const WORLD_CUP_2026_DATA = {
       "away_team_label": "GER"
     },
     {
-      "id": "57",
-      "sahadan_id": "9784oivu7jkgn66e0pnnsyr6c",
+      "id": "9784oivu7jkgn66e0pnnsyr6c",
       "home_team_id": "14",
       "away_team_id": "15",
       "home_team_name_en": "Paraguay",
@@ -4957,8 +4900,7 @@ const WORLD_CUP_2026_DATA = {
       "away_team_label": "AUS"
     },
     {
-      "id": "58",
-      "sahadan_id": "8chdphpgdqjkj85rml9odn1uc",
+      "id": "8chdphpgdqjkj85rml9odn1uc",
       "home_team_id": "16",
       "away_team_id": "13",
       "home_team_name_en": "Turkey",
@@ -4985,8 +4927,7 @@ const WORLD_CUP_2026_DATA = {
       "away_team_label": "USA"
     },
     {
-      "id": "59",
-      "sahadan_id": "83o3gqwqwt5c9jskxmcpqjvv8",
+      "id": "83o3gqwqwt5c9jskxmcpqjvv8",
       "home_team_id": "22",
       "away_team_id": "23",
       "home_team_name_en": "Japan",
@@ -5013,8 +4954,7 @@ const WORLD_CUP_2026_DATA = {
       "away_team_label": "SWE"
     },
     {
-      "id": "60",
-      "sahadan_id": "77okx4j2kol5e0806b6xf74lw",
+      "id": "77okx4j2kol5e0806b6xf74lw",
       "home_team_id": "24",
       "away_team_id": "21",
       "home_team_name_en": "Tunisia",
@@ -5041,8 +4981,7 @@ const WORLD_CUP_2026_DATA = {
       "away_team_label": "NED"
     },
     {
-      "id": "61",
-      "sahadan_id": "2bi32jvwjtru3nrkulzx3ip04",
+      "id": "2bi32jvwjtru3nrkulzx3ip04",
       "home_team_id": "34",
       "away_team_id": "35",
       "home_team_name_en": "Senegal",
@@ -5069,8 +5008,7 @@ const WORLD_CUP_2026_DATA = {
       "away_team_label": "IRQ"
     },
     {
-      "id": "62",
-      "sahadan_id": "1fxxfshtg3b7p2ya8789tke8k",
+      "id": "1fxxfshtg3b7p2ya8789tke8k",
       "home_team_id": "36",
       "away_team_id": "33",
       "home_team_name_en": "Norway",
@@ -5097,8 +5035,7 @@ const WORLD_CUP_2026_DATA = {
       "away_team_label": "FRA"
     },
     {
-      "id": "63",
-      "sahadan_id": "ctfvqyihaptbye55z2v5jims",
+      "id": "ctfvqyihaptbye55z2v5jims",
       "home_team_id": "26",
       "away_team_id": "27",
       "home_team_name_en": "Egypt",
@@ -5125,8 +5062,7 @@ const WORLD_CUP_2026_DATA = {
       "away_team_label": "IRN"
     },
     {
-      "id": "64",
-      "sahadan_id": "enyd3pel1z18f8cikzixnwpw4",
+      "id": "enyd3pel1z18f8cikzixnwpw4",
       "home_team_id": "28",
       "away_team_id": "25",
       "home_team_name_en": "New Zealand",
@@ -5153,8 +5089,7 @@ const WORLD_CUP_2026_DATA = {
       "away_team_label": "BEL"
     },
     {
-      "id": "65",
-      "sahadan_id": "bl0y9cpgj82lun5bhvz8r3u38",
+      "id": "bl0y9cpgj82lun5bhvz8r3u38",
       "home_team_id": "30",
       "away_team_id": "31",
       "home_team_name_en": "Cape Verde",
@@ -5181,8 +5116,7 @@ const WORLD_CUP_2026_DATA = {
       "away_team_label": "KSA"
     },
     {
-      "id": "66",
-      "sahadan_id": "ahb6v608gitlu543aevomjuac",
+      "id": "ahb6v608gitlu543aevomjuac",
       "home_team_id": "32",
       "away_team_id": "29",
       "home_team_name_en": "Uruguay",
@@ -5209,8 +5143,7 @@ const WORLD_CUP_2026_DATA = {
       "away_team_label": "ESP"
     },
     {
-      "id": "67",
-      "sahadan_id": "3t13xxgisfsmlvm62iydvpqms",
+      "id": "3t13xxgisfsmlvm62iydvpqms",
       "home_team_id": "48",
       "away_team_id": "45",
       "home_team_name_en": "Panama",
@@ -5237,8 +5170,7 @@ const WORLD_CUP_2026_DATA = {
       "away_team_label": "ENG"
     },
     {
-      "id": "68",
-      "sahadan_id": "4n1jg6og0392ta1ncdefsn2tw",
+      "id": "4n1jg6og0392ta1ncdefsn2tw",
       "home_team_id": "46",
       "away_team_id": "47",
       "home_team_name_en": "Croatia",
@@ -5265,8 +5197,7 @@ const WORLD_CUP_2026_DATA = {
       "away_team_label": "GHA"
     },
     {
-      "id": "69",
-      "sahadan_id": "94kik3fjes44gzerha1wu2l90",
+      "id": "94kik3fjes44gzerha1wu2l90",
       "home_team_id": "38",
       "away_team_id": "39",
       "home_team_name_en": "Algeria",
@@ -5293,8 +5224,7 @@ const WORLD_CUP_2026_DATA = {
       "away_team_label": "AUT"
     },
     {
-      "id": "70",
-      "sahadan_id": "8g2qr1sd0kqxtjcvybdfgzvh0",
+      "id": "8g2qr1sd0kqxtjcvybdfgzvh0",
       "home_team_id": "40",
       "away_team_id": "37",
       "home_team_name_en": "Jordan",
@@ -5321,8 +5251,7 @@ const WORLD_CUP_2026_DATA = {
       "away_team_label": "ARG"
     },
     {
-      "id": "71",
-      "sahadan_id": "dsi0ga8gcy8xcrywdfj3i51qs",
+      "id": "dsi0ga8gcy8xcrywdfj3i51qs",
       "home_team_id": "44",
       "away_team_id": "41",
       "home_team_name_en": "Colombia",
@@ -5349,8 +5278,7 @@ const WORLD_CUP_2026_DATA = {
       "away_team_label": "POR"
     },
     {
-      "id": "72",
-      "sahadan_id": "emz36epmepynr3ggfksojdmhg",
+      "id": "emz36epmepynr3ggfksojdmhg",
       "home_team_id": "42",
       "away_team_id": "43",
       "home_team_name_en": "Democratic Republic of the Congo",
@@ -5378,7 +5306,6 @@ const WORLD_CUP_2026_DATA = {
     },
     {
       "id": "73",
-      "sahadan_id": null,
       "home_team_id": "0",
       "away_team_id": "0",
       "home_team_flag": "",
@@ -5402,7 +5329,6 @@ const WORLD_CUP_2026_DATA = {
     },
     {
       "id": "74",
-      "sahadan_id": null,
       "home_team_id": "0",
       "away_team_id": "0",
       "home_team_flag": "",
@@ -5426,7 +5352,6 @@ const WORLD_CUP_2026_DATA = {
     },
     {
       "id": "75",
-      "sahadan_id": null,
       "home_team_id": "0",
       "away_team_id": "0",
       "home_team_flag": "",
@@ -5450,7 +5375,6 @@ const WORLD_CUP_2026_DATA = {
     },
     {
       "id": "76",
-      "sahadan_id": null,
       "home_team_id": "0",
       "away_team_id": "0",
       "home_team_flag": "",
@@ -5474,7 +5398,6 @@ const WORLD_CUP_2026_DATA = {
     },
     {
       "id": "77",
-      "sahadan_id": null,
       "home_team_id": "0",
       "away_team_id": "0",
       "home_team_flag": "",
@@ -5498,7 +5421,6 @@ const WORLD_CUP_2026_DATA = {
     },
     {
       "id": "78",
-      "sahadan_id": null,
       "home_team_id": "0",
       "away_team_id": "0",
       "home_team_flag": "",
@@ -5522,7 +5444,6 @@ const WORLD_CUP_2026_DATA = {
     },
     {
       "id": "79",
-      "sahadan_id": null,
       "home_team_id": "0",
       "away_team_id": "0",
       "home_team_flag": "",
@@ -5546,7 +5467,6 @@ const WORLD_CUP_2026_DATA = {
     },
     {
       "id": "80",
-      "sahadan_id": null,
       "home_team_id": "0",
       "away_team_id": "0",
       "home_team_flag": "",
@@ -5570,7 +5490,6 @@ const WORLD_CUP_2026_DATA = {
     },
     {
       "id": "81",
-      "sahadan_id": null,
       "home_team_id": "0",
       "away_team_id": "0",
       "home_team_flag": "",
@@ -5594,7 +5513,6 @@ const WORLD_CUP_2026_DATA = {
     },
     {
       "id": "82",
-      "sahadan_id": null,
       "home_team_id": "0",
       "away_team_id": "0",
       "home_team_flag": "",
@@ -5618,7 +5536,6 @@ const WORLD_CUP_2026_DATA = {
     },
     {
       "id": "83",
-      "sahadan_id": null,
       "home_team_id": "0",
       "away_team_id": "0",
       "home_team_flag": "",
@@ -5642,7 +5559,6 @@ const WORLD_CUP_2026_DATA = {
     },
     {
       "id": "84",
-      "sahadan_id": null,
       "home_team_id": "0",
       "away_team_id": "0",
       "home_team_flag": "",
@@ -5666,7 +5582,6 @@ const WORLD_CUP_2026_DATA = {
     },
     {
       "id": "85",
-      "sahadan_id": null,
       "home_team_id": "0",
       "away_team_id": "0",
       "home_team_flag": "",
@@ -5690,7 +5605,6 @@ const WORLD_CUP_2026_DATA = {
     },
     {
       "id": "86",
-      "sahadan_id": null,
       "home_team_id": "0",
       "away_team_id": "0",
       "home_team_flag": "",
@@ -5714,7 +5628,6 @@ const WORLD_CUP_2026_DATA = {
     },
     {
       "id": "87",
-      "sahadan_id": null,
       "home_team_id": "0",
       "away_team_id": "0",
       "home_team_flag": "",
@@ -5738,7 +5651,6 @@ const WORLD_CUP_2026_DATA = {
     },
     {
       "id": "88",
-      "sahadan_id": null,
       "home_team_id": "0",
       "away_team_id": "0",
       "home_team_flag": "",
@@ -5762,7 +5674,6 @@ const WORLD_CUP_2026_DATA = {
     },
     {
       "id": "89",
-      "sahadan_id": null,
       "home_team_id": "0",
       "away_team_id": "0",
       "home_team_flag": "",
@@ -5786,7 +5697,6 @@ const WORLD_CUP_2026_DATA = {
     },
     {
       "id": "90",
-      "sahadan_id": null,
       "home_team_id": "0",
       "away_team_id": "0",
       "home_team_flag": "",
@@ -5810,7 +5720,6 @@ const WORLD_CUP_2026_DATA = {
     },
     {
       "id": "91",
-      "sahadan_id": null,
       "home_team_id": "0",
       "away_team_id": "0",
       "home_team_flag": "",
@@ -5834,7 +5743,6 @@ const WORLD_CUP_2026_DATA = {
     },
     {
       "id": "92",
-      "sahadan_id": null,
       "home_team_id": "0",
       "away_team_id": "0",
       "home_team_flag": "",
@@ -5858,7 +5766,6 @@ const WORLD_CUP_2026_DATA = {
     },
     {
       "id": "93",
-      "sahadan_id": null,
       "home_team_id": "0",
       "away_team_id": "0",
       "home_team_flag": "",
@@ -5882,7 +5789,6 @@ const WORLD_CUP_2026_DATA = {
     },
     {
       "id": "94",
-      "sahadan_id": null,
       "home_team_id": "0",
       "away_team_id": "0",
       "home_team_flag": "",
@@ -5906,7 +5812,6 @@ const WORLD_CUP_2026_DATA = {
     },
     {
       "id": "95",
-      "sahadan_id": null,
       "home_team_id": "0",
       "away_team_id": "0",
       "home_team_flag": "",
@@ -5930,7 +5835,6 @@ const WORLD_CUP_2026_DATA = {
     },
     {
       "id": "96",
-      "sahadan_id": null,
       "home_team_id": "0",
       "away_team_id": "0",
       "home_team_flag": "",
@@ -5954,7 +5858,6 @@ const WORLD_CUP_2026_DATA = {
     },
     {
       "id": "97",
-      "sahadan_id": null,
       "home_team_id": "0",
       "away_team_id": "0",
       "home_team_flag": "",
@@ -5978,7 +5881,6 @@ const WORLD_CUP_2026_DATA = {
     },
     {
       "id": "98",
-      "sahadan_id": null,
       "home_team_id": "0",
       "away_team_id": "0",
       "home_team_flag": "",
@@ -6002,7 +5904,6 @@ const WORLD_CUP_2026_DATA = {
     },
     {
       "id": "99",
-      "sahadan_id": null,
       "home_team_id": "0",
       "away_team_id": "0",
       "home_team_flag": "",
@@ -6026,7 +5927,6 @@ const WORLD_CUP_2026_DATA = {
     },
     {
       "id": "100",
-      "sahadan_id": null,
       "home_team_id": "0",
       "away_team_id": "0",
       "home_team_flag": "",
@@ -6050,7 +5950,6 @@ const WORLD_CUP_2026_DATA = {
     },
     {
       "id": "101",
-      "sahadan_id": null,
       "home_team_id": "0",
       "away_team_id": "0",
       "home_team_flag": "",
@@ -6074,7 +5973,6 @@ const WORLD_CUP_2026_DATA = {
     },
     {
       "id": "102",
-      "sahadan_id": null,
       "home_team_id": "0",
       "away_team_id": "0",
       "home_team_flag": "",
@@ -6098,7 +5996,6 @@ const WORLD_CUP_2026_DATA = {
     },
     {
       "id": "103",
-      "sahadan_id": null,
       "home_team_id": "0",
       "away_team_id": "0",
       "home_team_flag": "",
@@ -6122,7 +6019,6 @@ const WORLD_CUP_2026_DATA = {
     },
     {
       "id": "104",
-      "sahadan_id": null,
       "home_team_id": "0",
       "away_team_id": "0",
       "home_team_flag": "",

@@ -604,8 +604,7 @@ function transform(sahadanResp, wcGames = null) {
       const stCountryTr = s ? (TR_COUNTRIES[s.country_en] || s.country_en) : null;
 
       const game = {
-        id: wg.id,
-        sahadan_id: sMatch ? sMatch.uuid : null,
+        id: sMatch ? sMatch.uuid : wg.id,
         home_team_id: wg.home_team_id, away_team_id: wg.away_team_id,
         home_team_name_en: wg.home_team_name_en, home_team_name_tr: homeTr,
         away_team_name_en: wg.away_team_name_en, away_team_name_tr: awayTr,

@@ -483,8 +483,7 @@ function loadCache() {
 }
 
 function transform(sahadanResp, wcGames = null) {
-  const data = sahadanResp.data;
-  if (!data) return null;
+  const data = sahadanResp?.data || {};
 
   const teamsMap = {};
   const teams = [];
@@ -502,166 +501,83 @@ function transform(sahadanResp, wcGames = null) {
 
   const groups = [];
   const groupsMap = {};
+  for (const gn of GROUP_NAMES) { 
+    const g = { name: gn, teams: [] };
+    groups.push(g); 
+    groupsMap[gn] = g; 
+  }
 
-  // Parse Sahadan rankings to get the static group/team structure, but reset stats to 0 (so we can calculate them ourselves)
-  const rankingsSource = (data.rankings_live && data.rankings_live.total) ? data.rankings_live.total : (data.rankings && data.rankings.total ? data.rankings.total : null);
-  if (rankingsSource) {
-    for (const gr of rankingsSource) {
-      const gn = extractGroup(gr.group?.name || gr.name || "");
-      if (!gn) continue;
-      const g = { name: gn, teams: [] };
-      if (gr.table) {
-        for (const e of gr.table) {
-          const to = e.team;
-          if (!to) continue;
-          const t = ensureTeam(to.name, to.uuid);
-          if (!t) continue;
-          if (t.groups.indexOf(gn) === -1) t.groups = t.groups ? t.groups + "," + gn : gn;
-          g.teams.push({
-            team_id: teamId(to.name), name_tr: to.name, name_en: enName(to.name), flag: flagUrl(to.name), fifa_code: fifaCode(to.name),
-            mp: 0, w: 0, d: 0, l: 0, gf: 0, ga: 0, gd: 0, pts: 0
+  const sahadanMatches = [];
+  if (data.gamesets) {
+    for (const gs of data.gamesets) {
+      for (const m of gs.matches) {
+        if (m.team_A && m.team_B) {
+          sahadanMatches.push({
+            uuid: m.uuid,
+            homeEn: cleanPlaceholderName(enName(m.team_A.name)),
+            awayEn: cleanPlaceholderName(enName(m.team_B.name))
           });
         }
       }
-      groups.push(g);
-      groupsMap[gn] = g;
     }
   }
-  for (const gn of GROUP_NAMES) { if (!groupsMap[gn]) groups.push({ name: gn, teams: [] }); }
 
   const games = [];
-  if (data.gamesets) {
-    for (const gs of data.gamesets) {
-      const md = gs.name;
-      for (const m of gs.matches) {
-        const a = m.team_A, b = m.team_B;
-        if (!a || !b) continue;
-        ensureTeam(a.name, a.uuid);
-        ensureTeam(b.name, b.uuid);
-        const rn = m.round?.name || "";
-        const typeMap = { "Son 32 Turu": "r32", "Son 16 Turu": "r16", "Çeyrek Final": "qf", "Yarı Final": "sf", "Final": "final", "3.": "third" };
-        const type = typeMap[md] || "group";
-        
-        let gl = extractGroup(rn);
-        if (!gl && (type === "group" || md === "1" || md === "2" || md === "3")) {
-          if (a && a.uuid && teamsMap[a.uuid]) {
-            gl = (teamsMap[a.uuid].groups || "").split(",")[0] || "";
-          }
-        }
-        if (!gl) gl = "";
-
-        const finished = m.status === "Played";
-        const isLive = m.status !== "Played" && m.status !== "Fixture";
-        let timeElapsed = "notstarted";
-        if (finished) {
-          timeElapsed = "finished";
-        } else if (isLive) {
-          timeElapsed = m.minute !== undefined ? String(m.minute) : "live";
-        }
-
-        const parseScoreVal = (fts, scr) => {
-          if (fts !== undefined && fts !== null) {
-            const parsed = parseInt(fts);
-            if (!isNaN(parsed)) return parsed;
-          }
-          if (scr !== undefined && scr !== null && scr !== "-") {
-            const parsed = parseInt(scr);
-            if (!isNaN(parsed)) return parsed;
-          }
-          return null;
-        };
-        const hs = parseScoreVal(m.fts_A, m.score_A);
-        const as = parseScoreVal(m.fts_B, m.score_B);
-        const dd = matchDetailsCache[m.uuid] || {};
-
-        const rawHomeId = teamId(a.name);
-        const rawAwayId = teamId(b.name);
-        const homeId = cleanPlaceholderName(rawHomeId);
-        const awayId = cleanPlaceholderName(rawAwayId);
-        const homeNameTr = cleanPlaceholderName(a.name);
-        const awayNameTr = cleanPlaceholderName(b.name);
-        const homeNameEn = cleanPlaceholderName(enName(a.name));
-        const awayNameEn = cleanPlaceholderName(enName(b.name));
-
-        const knockoutMatchdayMap = {
-          "r32": "4",
-          "r16": "5",
-          "qf": "6",
-          "sf": "7",
-          "third": "7",
-          "final": "8"
-        };
-        const matchdayVal = type === "group" ? (isNaN(parseInt(md)) ? "1" : md) : (knockoutMatchdayMap[type] || "4");
-
-        const game = {
-          id: m.uuid,
-          home_team_id: homeId, away_team_id: awayId,
-          home_team_name_en: homeNameEn, home_team_name_tr: homeNameTr,
-          away_team_name_en: awayNameEn, away_team_name_tr: awayNameTr,
-          home_team_flag: flagUrl(a.name), away_team_flag: flagUrl(b.name),
-          home_score: hs, away_score: as,
-          home_scorers: null, away_scorers: null,
-          group: gl, matchday: matchdayVal,
-          local_date: toTurkeyTime(m.date_time_utc),
-          stadium_id: null, stadium_name_tr: null, stadium_city_tr: null, stadium_country_tr: null,
-          finished, time_elapsed: timeElapsed,
-          type, home_team_label: null, away_team_label: null
-        };
-
-        enrichGame(game);
-        games.push(game);
-      }
-    }
-  }
-
-  // Append missing third-place play-off match
-  const hasThirdPlace = games.some(g => g.type === "third");
-  if (!hasThirdPlace) {
-    const thirdPlaceMatch = {
-      id: "macko17649633154402768708",
-      home_team_id: "Y.F. 1. Eşleşme Kaybedeni",
-      away_team_id: "Y.F. 2. Eşleşme Kaybedeni",
-      home_team_name_en: "Y.F. 1. Eşleşme Kaybedeni",
-      home_team_name_tr: "Y.F. 1. Eşleşme Kaybedeni",
-      away_team_name_en: "Y.F. 2. Eşleşme Kaybedeni",
-      away_team_name_tr: "Y.F. 2. Eşleşme Kaybedeni",
-      home_team_flag: "",
-      away_team_flag: "",
-      home_score: null,
-      away_score: null,
-      home_scorers: null,
-      away_scorers: null,
-      group: "",
-      matchday: "7",
-      local_date: "07/18/2026 22:00",
-      stadium_id: "8", // Hard Rock Stadium
-      stadium_name_tr: "Hard Rock Stadyumu",
-      stadium_city_tr: "Miami",
-      stadium_country_tr: "ABD",
-      finished: false,
-      time_elapsed: "notstarted",
-      type: "third",
-      home_team_label: "YF L1",
-      away_team_label: "YF L2"
-    };
-    games.push(thirdPlaceMatch);
-  }
-
-  // Overlay missing scorers from worldcup26.ir
   if (wcGames && wcGames.games) {
     for (const wg of wcGames.games) {
-      const matchGame = games.find(g => 
-        g.home_team_name_en === wg.home_team_name_en && 
-        g.away_team_name_en === wg.away_team_name_en
-      );
-      if (matchGame) {
-        if (wg.home_scorers && wg.home_scorers !== "null" && (!matchGame.home_scorers || matchGame.home_scorers === "null")) {
-          matchGame.home_scorers = wg.home_scorers;
+      const homeTr = TR_NAMES[wg.home_team_name_en] || wg.home_team_name_en;
+      const awayTr = TR_NAMES[wg.away_team_name_en] || wg.away_team_name_en;
+      
+      const tA = ensureTeam(homeTr, "team_" + wg.home_team_id);
+      const tB = ensureTeam(awayTr, "team_" + wg.away_team_id);
+      
+      if (wg.type === "group" && wg.group && groupsMap[wg.group]) {
+        const g = groupsMap[wg.group];
+        if (tA && tA.groups.indexOf(wg.group) === -1) tA.groups = tA.groups ? tA.groups + "," + wg.group : wg.group;
+        if (tB && tB.groups.indexOf(wg.group) === -1) tB.groups = tB.groups ? tB.groups + "," + wg.group : wg.group;
+        
+        if (tA && !g.teams.find(t => t.team_id === tA.id)) {
+          g.teams.push({ ...tA, team_id: tA.id, mp: 0, w: 0, d: 0, l: 0, gf: 0, ga: 0, gd: 0, pts: 0 });
         }
-        if (wg.away_scorers && wg.away_scorers !== "null" && (!matchGame.away_scorers || matchGame.away_scorers === "null")) {
-          matchGame.away_scorers = wg.away_scorers;
+        if (tB && !g.teams.find(t => t.team_id === tB.id)) {
+          g.teams.push({ ...tB, team_id: tB.id, mp: 0, w: 0, d: 0, l: 0, gf: 0, ga: 0, gd: 0, pts: 0 });
         }
       }
+
+      const sMatch = sahadanMatches.find(sm => sm.homeEn === wg.home_team_name_en && sm.awayEn === wg.away_team_name_en);
+
+      let hs = wg.home_score === "null" || wg.home_score === null ? null : parseInt(wg.home_score);
+      let as = wg.away_score === "null" || wg.away_score === null ? null : parseInt(wg.away_score);
+      
+      const s = STADIUM_DETAILS.find(st => st.id === wg.stadium_id);
+      const stNameTr = s ? (STADIUM_NAMES_TR[s.id] || s.name_en) : null;
+      const stCityTr = s ? (TR_CITIES[s.city_en] || s.city_en) : null;
+      const stCountryTr = s ? (TR_COUNTRIES[s.country_en] || s.country_en) : null;
+
+      const game = {
+        id: wg.id,
+        sahadan_id: sMatch ? sMatch.uuid : null,
+        home_team_id: wg.home_team_id, away_team_id: wg.away_team_id,
+        home_team_name_en: wg.home_team_name_en, home_team_name_tr: homeTr,
+        away_team_name_en: wg.away_team_name_en, away_team_name_tr: awayTr,
+        home_team_flag: flagUrl(homeTr), away_team_flag: flagUrl(awayTr),
+        home_score: isNaN(hs) ? null : hs, away_score: isNaN(as) ? null : as,
+        home_scorers: wg.home_scorers === "null" ? null : wg.home_scorers, 
+        away_scorers: wg.away_scorers === "null" ? null : wg.away_scorers,
+        group: wg.group === "null" ? "" : wg.group, 
+        matchday: wg.matchday,
+        local_date: wg.local_date,
+        stadium_id: wg.stadium_id === "null" ? null : wg.stadium_id, 
+        stadium_name_tr: stNameTr, stadium_city_tr: stCityTr, stadium_country_tr: stCountryTr,
+        finished: wg.finished === "TRUE" || wg.finished === true, 
+        time_elapsed: wg.time_elapsed === "null" ? "notstarted" : wg.time_elapsed,
+        type: wg.type, 
+        home_team_label: wg.home_team_label === "null" ? null : wg.home_team_label, 
+        away_team_label: wg.away_team_label === "null" ? null : wg.away_team_label
+      };
+
+      enrichGame(game);
+      games.push(game);
     }
   }
 
@@ -742,14 +658,13 @@ async function syncData() {
 
     let newDetails = 0;
     for (const game of result.games) {
-      if (game.type === "third") continue; // Skip injected third-place match
       const cached = matchDetailsCache[game.id];
       const isLive = game.time_elapsed !== "finished" && game.time_elapsed !== "notstarted";
       const needsFetch = (game.finished && (!cached || !cached.events || !cached.lineup || !cached.stat_team_detailed)) || isLive;
       
-      if (needsFetch) {
+      if (needsFetch && game.sahadan_id) {
         console.log(`Detay (${cached ? 'Güncelleniyor' : 'Yeni'}) [isLive=${isLive}]: ${game.home_team_name_tr} vs ${game.away_team_name_tr}`);
-        const dd = await fetchMatchDetail(game.id, isLive);
+        const dd = await fetchMatchDetail(game.sahadan_id, isLive);
         if (dd) {
           matchDetailsCache[game.id] = dd;
           newDetails++;

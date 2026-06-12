@@ -3194,7 +3194,7 @@ const WORLD_CUP_2026_DATA = {
       "away_team_flag": "https://flagcdn.com/w80/ba.png",
       "home_score": 1,
       "away_score": 1,
-      "home_scorers": null,
+      "home_scorers": "{\"C. Larin 11'\"}",
       "away_scorers": "{\"J. Lukic 21'\"}",
       "group": "B",
       "matchday": "1",

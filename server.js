@@ -435,6 +435,18 @@ function fetchCompetition() {
   return fetchJson("https://www.sahadan.com/api/index/soccer-competition-70excpe1synn9kadnbppahdn7?a=bs&e=sac&competition_uuid=70excpe1synn9kadnbppahdn7&language=tr&country=tr&application=mackolik.com");
 }
 
+function fetchWorldCupGames() {
+  return new Promise((resolve) => {
+    https.get("https://worldcup26.ir/get/games", { headers: { "User-Agent": "Mozilla/5.0" } }, (res) => {
+      let d = "";
+      res.on("data", c => d += c);
+      res.on("end", () => {
+        try { resolve(JSON.parse(d)); } catch { resolve(null); }
+      });
+    }).on("error", () => resolve(null));
+  });
+}
+
 function saveCache() {
   try {
     const dir = path.dirname(CACHE_FILE);
@@ -470,7 +482,7 @@ function loadCache() {
   return false;
 }
 
-function transform(sahadanResp) {
+function transform(sahadanResp, wcGames = null) {
   const data = sahadanResp.data;
   if (!data) return null;
 
@@ -635,6 +647,24 @@ function transform(sahadanResp) {
     games.push(thirdPlaceMatch);
   }
 
+  // Overlay missing scorers from worldcup26.ir
+  if (wcGames && wcGames.games) {
+    for (const wg of wcGames.games) {
+      const matchGame = games.find(g => 
+        g.home_team_name_en === wg.home_team_name_en && 
+        g.away_team_name_en === wg.away_team_name_en
+      );
+      if (matchGame) {
+        if (wg.home_scorers && wg.home_scorers !== "null" && (!matchGame.home_scorers || matchGame.home_scorers === "null")) {
+          matchGame.home_scorers = wg.home_scorers;
+        }
+        if (wg.away_scorers && wg.away_scorers !== "null" && (!matchGame.away_scorers || matchGame.away_scorers === "null")) {
+          matchGame.away_scorers = wg.away_scorers;
+        }
+      }
+    }
+  }
+
   calculateAllStandings(groups, games);
   groups.sort((a, b) => a.name.localeCompare(b.name));
   const stadiums = STADIUM_DETAILS.map(s => ({
@@ -704,7 +734,8 @@ async function syncData() {
   try {
     console.log(`[${new Date().toLocaleTimeString("tr-TR")}] Sahadan verisi çekiliyor...`);
     const resp = await fetchCompetition();
-    const result = transform(resp);
+    const wcGames = await fetchWorldCupGames();
+    const result = transform(resp, wcGames);
     if (!result || !result.games) return;
     cachedData = result;
     console.log(`[${new Date().toLocaleTimeString("tr-TR")}] ${result.games.length} maç, ${result.teams.length} takım`);
@@ -728,7 +759,7 @@ async function syncData() {
     }
 
     if (newDetails > 0) {
-      cachedData = transform(resp);
+      cachedData = transform(resp, wcGames);
     }
     saveCache();
   } catch (e) {

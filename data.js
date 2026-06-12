@@ -34,6 +34,14 @@ const WORLD_CUP_2026_DATA = {
       "groups": "A"
     },
     {
+      "id": "5",
+      "name_tr": "Kanada",
+      "name_en": "Canada",
+      "flag": "https://flagcdn.com/w80/ca.png",
+      "fifa_code": "CAN",
+      "groups": "B"
+    },
+    {
       "id": "6",
       "name_tr": "Bosna-Hersek",
       "name_en": "Bosnia and Herzegovina",
@@ -55,14 +63,6 @@ const WORLD_CUP_2026_DATA = {
       "name_en": "Qatar",
       "flag": "https://flagcdn.com/w80/qa.png",
       "fifa_code": "QAT",
-      "groups": "B"
-    },
-    {
-      "id": "5",
-      "name_tr": "Kanada",
-      "name_en": "Canada",
-      "flag": "https://flagcdn.com/w80/ca.png",
-      "fifa_code": "CAN",
       "groups": "B"
     },
     {
@@ -958,13 +958,28 @@ const WORLD_CUP_2026_DATA = {
           "flag": "https://flagcdn.com/w80/ba.png",
           "fifa_code": "BIH",
           "mp": 1,
-          "w": 1,
-          "d": 0,
+          "w": 0,
+          "d": 1,
           "l": 0,
           "gf": 1,
-          "ga": 0,
-          "gd": 1,
-          "pts": 3
+          "ga": 1,
+          "gd": 0,
+          "pts": 1
+        },
+        {
+          "team_id": "5",
+          "name_tr": "Kanada",
+          "name_en": "Canada",
+          "flag": "https://flagcdn.com/w80/ca.png",
+          "fifa_code": "CAN",
+          "mp": 1,
+          "w": 0,
+          "d": 1,
+          "l": 0,
+          "gf": 1,
+          "ga": 1,
+          "gd": 0,
+          "pts": 1
         },
         {
           "team_id": "8",
@@ -994,21 +1009,6 @@ const WORLD_CUP_2026_DATA = {
           "gf": 0,
           "ga": 0,
           "gd": 0,
-          "pts": 0
-        },
-        {
-          "team_id": "5",
-          "name_tr": "Kanada",
-          "name_en": "Canada",
-          "flag": "https://flagcdn.com/w80/ca.png",
-          "fifa_code": "CAN",
-          "mp": 1,
-          "w": 0,
-          "d": 0,
-          "l": 1,
-          "gf": 0,
-          "ga": 1,
-          "gd": -1,
           "pts": 0
         }
       ]
@@ -1282,7 +1282,7 @@ const WORLD_CUP_2026_DATA = {
           "name_en": "Belgium",
           "flag": "https://flagcdn.com/w80/be.png",
           "fifa_code": "BEL",
-          "mp": 1,
+          "mp": 0,
           "w": 0,
           "d": 0,
           "l": 0,
@@ -1358,7 +1358,7 @@ const WORLD_CUP_2026_DATA = {
         },
         {
           "team_id": "31",
-          "name_tr": "Suudi Arabistan",
+          "name_tr": "S. Arabistan",
           "name_en": "Saudi Arabia",
           "flag": "https://flagcdn.com/w80/sa.png",
           "fifa_code": "KSA",
@@ -1388,7 +1388,7 @@ const WORLD_CUP_2026_DATA = {
         },
         {
           "team_id": "30",
-          "name_tr": "Yeşil Burun Adaları",
+          "name_tr": "Yeşil Burun",
           "name_en": "Cape Verde",
           "flag": "https://flagcdn.com/w80/cv.png",
           "fifa_code": "CPV",
@@ -1538,7 +1538,7 @@ const WORLD_CUP_2026_DATA = {
       "teams": [
         {
           "team_id": "42",
-          "name_tr": "Demokratik Kongo Cumhuriyeti",
+          "name_tr": "Demokratik Kongo C.",
           "name_en": "Democratic Republic of the Congo",
           "flag": "https://flagcdn.com/w80/cd.png",
           "fifa_code": "COD",
@@ -3192,7 +3192,7 @@ const WORLD_CUP_2026_DATA = {
       "away_team_name_tr": "Bosna-Hersek",
       "home_team_flag": "https://flagcdn.com/w80/ca.png",
       "away_team_flag": "https://flagcdn.com/w80/ba.png",
-      "home_score": 0,
+      "home_score": 1,
       "away_score": 1,
       "home_scorers": null,
       "away_scorers": "{\"J. Lukic 21'\"}",
@@ -3203,8 +3203,8 @@ const WORLD_CUP_2026_DATA = {
       "stadium_name_tr": "BMO Field",
       "stadium_city_tr": "Toronto",
       "stadium_country_tr": "Kanada",
-      "finished": false,
-      "time_elapsed": "45",
+      "finished": true,
+      "time_elapsed": "finished",
       "type": "group",
       "home_team_label": "CAN",
       "away_team_label": "BIH",

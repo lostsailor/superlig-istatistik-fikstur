@@ -470,7 +470,7 @@ function loadCache() {
   return false;
 }
 
-function transform(sahadanResp, wcStandings = null) {
+function transform(sahadanResp) {
   const data = sahadanResp.data;
   if (!data) return null;
 
@@ -491,7 +491,7 @@ function transform(sahadanResp, wcStandings = null) {
   const groups = [];
   const groupsMap = {};
 
-  // Always parse Sahadan rankings first to populate teamsMap and team groups
+  // Parse Sahadan rankings to get the static group/team structure, but reset stats to 0 (so we can calculate them ourselves)
   const rankingsSource = (data.rankings_live && data.rankings_live.total) ? data.rankings_live.total : (data.rankings && data.rankings.total ? data.rankings.total : null);
   if (rankingsSource) {
     for (const gr of rankingsSource) {
@@ -507,9 +507,7 @@ function transform(sahadanResp, wcStandings = null) {
           if (t.groups.indexOf(gn) === -1) t.groups = t.groups ? t.groups + "," + gn : gn;
           g.teams.push({
             team_id: teamId(to.name), name_tr: to.name, name_en: enName(to.name), flag: flagUrl(to.name), fifa_code: fifaCode(to.name),
-            mp: +e.played || 0, w: +e.win || 0, d: +e.draw || 0, l: +e.lost || 0,
-            gf: +e.pro || 0, ga: +e.against || 0,
-            gd: (+e.pro || 0) - (+e.against || 0), pts: +e.pts || 0
+            mp: 0, w: 0, d: 0, l: 0, gf: 0, ga: 0, gd: 0, pts: 0
           });
         }
       }
@@ -518,50 +516,6 @@ function transform(sahadanResp, wcStandings = null) {
     }
   }
   for (const gn of GROUP_NAMES) { if (!groupsMap[gn]) groups.push({ name: gn, teams: [] }); }
-
-  // Overwrite group statistics with worldcup26.ir standings if present
-  if (wcStandings && wcStandings.groups) {
-    groups.length = 0;
-    for (const k of Object.keys(groupsMap)) delete groupsMap[k];
-
-    for (const wg of wcStandings.groups) {
-      const gn = wg.name;
-      const g = { name: gn, teams: [] };
-      for (const wt of wg.teams) {
-        let nameTr = "";
-        for (const [name, id] of Object.entries(TEAM_IDS)) {
-          if (id === wt.team_id) {
-            nameTr = name;
-            break;
-          }
-        }
-        if (!nameTr) continue;
-        
-        g.teams.push({
-          team_id: wt.team_id,
-          name_tr: nameTr,
-          name_en: enName(nameTr),
-          flag: flagUrl(nameTr),
-          fifa_code: fifaCode(nameTr),
-          mp: parseInt(wt.mp) || 0,
-          w: parseInt(wt.w) || 0,
-          d: parseInt(wt.d) || 0,
-          l: parseInt(wt.l) || 0,
-          gf: parseInt(wt.gf) || 0,
-          ga: parseInt(wt.ga) || 0,
-          gd: parseInt(wt.gd) || 0,
-          pts: parseInt(wt.pts) || 0
-        });
-      }
-      g.teams.sort((a, b) => {
-        if (b.pts !== a.pts) return b.pts - a.pts;
-        if (b.gd !== a.gd) return b.gd - a.gd;
-        return b.gf - a.gf;
-      });
-      groups.push(g);
-      groupsMap[gn] = g;
-    }
-  }
 
   const games = [];
   if (data.gamesets) {
@@ -593,8 +547,19 @@ function transform(sahadanResp, wcStandings = null) {
           timeElapsed = m.minute !== undefined ? String(m.minute) : "live";
         }
 
-        const hs = m.fts_A !== undefined ? m.fts_A : (m.score_A !== "-" ? parseInt(m.score_A) : null);
-        const as = m.fts_B !== undefined ? m.fts_B : (m.score_B !== "-" ? parseInt(m.score_B) : null);
+        const parseScoreVal = (fts, scr) => {
+          if (fts !== undefined && fts !== null) {
+            const parsed = parseInt(fts);
+            if (!isNaN(parsed)) return parsed;
+          }
+          if (scr !== undefined && scr !== null && scr !== "-") {
+            const parsed = parseInt(scr);
+            if (!isNaN(parsed)) return parsed;
+          }
+          return null;
+        };
+        const hs = parseScoreVal(m.fts_A, m.score_A);
+        const as = parseScoreVal(m.fts_B, m.score_B);
         const dd = matchDetailsCache[m.uuid] || {};
 
         const rawHomeId = teamId(a.name);
@@ -670,7 +635,7 @@ function transform(sahadanResp, wcStandings = null) {
     games.push(thirdPlaceMatch);
   }
 
-  updateLiveStandings(groups, games);
+  calculateAllStandings(groups, games);
   groups.sort((a, b) => a.name.localeCompare(b.name));
   const stadiums = STADIUM_DETAILS.map(s => ({
     id: s.id, name_en: s.name_en, name_tr: STADIUM_NAMES_TR[s.id] || s.name_en,
@@ -682,15 +647,11 @@ function transform(sahadanResp, wcStandings = null) {
   return { teams, groups, games, stadiums };
 }
 
-function updateLiveStandings(groups, games) {
+function calculateAllStandings(groups, games) {
   if (!groups || !games) return;
   
   for (const game of games) {
     if (game.type !== "group") continue;
-    
-    const isLive = game.time_elapsed !== "finished" && game.time_elapsed !== "notstarted";
-    if (!isLive) continue;
-    
     if (game.home_score === null || game.away_score === null) continue;
     
     const group = groups.find(g => g.name === game.group);
@@ -739,31 +700,11 @@ function updateLiveStandings(groups, games) {
   }
 }
 
-function fetchWorldCupGroups() {
-  return new Promise((resolve) => {
-    https.get("https://worldcup26.ir/get/groups", { headers: { "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36" } }, (res) => {
-      let d = "";
-      res.on("data", c => d += c);
-      res.on("end", () => {
-        try {
-          resolve(JSON.parse(d));
-        } catch {
-          resolve(null);
-        }
-      });
-    }).on("error", () => resolve(null));
-  });
-}
-
 async function syncData() {
   try {
     console.log(`[${new Date().toLocaleTimeString("tr-TR")}] Sahadan verisi çekiliyor...`);
     const resp = await fetchCompetition();
-    
-    console.log(`[${new Date().toLocaleTimeString("tr-TR")}] worldcup26.ir puan durumu çekiliyor...`);
-    const wcStandings = await fetchWorldCupGroups();
-    
-    const result = transform(resp, wcStandings);
+    const result = transform(resp);
     if (!result || !result.games) return;
     cachedData = result;
     console.log(`[${new Date().toLocaleTimeString("tr-TR")}] ${result.games.length} maç, ${result.teams.length} takım`);
@@ -787,10 +728,9 @@ async function syncData() {
     }
 
     if (newDetails > 0) {
-      cachedData = transform(resp, wcStandings);
-      saveCache();
-      console.log(`${newDetails} maç detayı eklendi, cache kaydedildi`);
+      cachedData = transform(resp);
     }
+    saveCache();
   } catch (e) {
     console.error("Sync hatası:", e.message);
   }

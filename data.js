@@ -1817,11 +1817,6 @@ const WORLD_CUP_2026_DATA = {
             "team_B_value": 11
           },
           {
-            "type": "Taç Atışı",
-            "team_A_value": 21,
-            "team_B_value": 11
-          },
-          {
             "type": "Toplam Pas",
             "team_A_value": 520,
             "team_B_value": 334
@@ -2623,11 +2618,6 @@ const WORLD_CUP_2026_DATA = {
             "team_B_value": 16
           },
           {
-            "type": "Taç Atışı",
-            "team_A_value": 26,
-            "team_B_value": 16
-          },
-          {
             "type": "Toplam Pas",
             "team_A_value": 541,
             "team_B_value": 327
@@ -3342,11 +3332,6 @@ const WORLD_CUP_2026_DATA = {
             "type": "Faul",
             "team_A_value": 10,
             "team_B_value": 20
-          },
-          {
-            "type": "Taç Atışı",
-            "team_A_value": 32,
-            "team_B_value": 26
           },
           {
             "type": "Toplam Pas",

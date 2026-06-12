@@ -37,47 +37,44 @@ const MIME_TYPES = {
   ".gif": "image/gif", ".svg": "image/svg+xml"
 };
 
-const ALLOWED_STATS = new Set([
-  "Topla Oynama", "Gol Beklentisi (xG)", "İsabetli Şut", "Toplam Şut",
-  "Rakip Ceza Sahasında Topla Buluşma (RCS)", "Korner", "Ofsayt", "Taç Atışı",
-  "Faul", "Sarı Kart", "İkinci Sarıdan Kırmızı Kart", "Direkt Kırmızı Kart",
-  "Toplam Pas", "İsabetli Pas", "Toplam Orta", "İsabetli Orta", "Uzaklaştırma"
-]);
-
 const STAT_MAPPING = {
-  // Turkish keys
-  "Topla oynama": "Topla Oynama",
-  "Beklenen gol": "Gol Beklentisi (xG)",
-  "İsabetli şut": "İsabetli Şut",
-  "Şut": "Toplam Şut",
-  "Rakip ceza sahası dokunma": "Rakip Ceza Sahasında Topla Buluşma (RCS)",
-  "Korner": "Korner",
-  "Toplam ofsayt": "Ofsayt",
-  "Taç atışı": "Taç Atışı",
-  "Taç Atışı": "Taç Atışı",
-  "Faul": "Faul",
-  "Sarı kart": "Sarı Kart",
-  "İkinci sarı kart": "İkinci Sarıdan Kırmızı Kart",
-  "Doğrudan kırmızı kart": "Direkt Kırmızı Kart",
+  // English -> Turkish
   "possession": "Topla Oynama",
   "expected_goals": "Gol Beklentisi (xG)",
-  "expected_goals_on_set_pieces": "Duran Top xG",
-  "touches_in_opp_box": "Rakip Ceza Sahasında Topla Buluşma",
+  "touches_in_opp_box": "Rakip Ceza Sahasında Topla Buluşma (RCS)",
   "shots": "Toplam Şut",
   "shots_on_target": "İsabetli Şut",
-  "shots_off_target": "İsabetsiz Şut",
   "corners": "Korner",
   "fouls": "Faul",
-  "blocked_shots": "Engellenen Şut",
-  "woodwork": "Direkten Dönen Şut",
-  "big_chances_missed": "Kaçan Net Fırsat",
-  "throw_in": "Taç Atışı",
   "passes": "Toplam Pas",
   "successful_passes": "İsabetli Pas",
   "crosses": "Toplam Orta",
+  "clearances": "Uzaklaştırma",
+  "total_offside": "Ofsayt",
   "successful_crosses": "İsabetli Orta",
-  "clearances": "Uzaklaştırma"
+  "yellow_card": "Sarı Kart",
+  "second_yellow_card": "İkinci Sarıdan Kırmızı Kart",
+  "direct_red_card": "Direkt Kırmızı Kart",
+  
+  // Fallback if Sahadan returns Turkish keys natively
+  "Topla oynama": "Topla Oynama",
+  "Beklenen gol": "Gol Beklentisi (xG)",
+  "Rakip ceza sahası dokunma": "Rakip Ceza Sahasında Topla Buluşma (RCS)",
+  "Şut": "Toplam Şut",
+  "İsabetli şut": "İsabetli Şut",
+  "Toplam ofsayt": "Ofsayt",
+  "Taç atışı": "Taç Atışı",
+  "Sarı kart": "Sarı Kart",
+  "İkinci sarı kart": "İkinci Sarıdan Kırmızı Kart",
+  "Doğrudan kırmızı kart": "Direkt Kırmızı Kart",
+  "Pas": "Toplam Pas",
+  "Başarılı pas": "İsabetli Pas",
+  "Orta": "Toplam Orta",
+  "Başarılı orta": "İsabetli Orta",
+  "Topu uzaklaştırma": "Uzaklaştırma"
 };
+
+const ALLOWED_STATS = new Set(Object.values(STAT_MAPPING));
 
 const TR_TO_EN = {
   "Meksika": "Mexico", "Güney Afrika": "South Africa", "Güney Kore": "South Korea",
@@ -257,14 +254,16 @@ function filterStats(statData) {
   if (!statData) return null;
   const out = {};
   if (statData.a && Array.isArray(statData.a)) {
-    const f = statData.a.map(s => {
-      const mappedType = STAT_MAPPING[s.type] || s.type;
-      return {
-        type: mappedType,
-        team_A_value: s.team_A_value,
-        team_B_value: s.team_B_value
-      };
-    });
+    const f = statData.a
+      .map(s => {
+        const mappedType = STAT_MAPPING[s.type] || s.type;
+        return {
+          type: mappedType,
+          team_A_value: s.team_A_value,
+          team_B_value: s.team_B_value
+        };
+      })
+      .filter(s => ALLOWED_STATS.has(s.type));
     if (f.length) out.a = f;
   }
   return Object.keys(out).length ? out : null;

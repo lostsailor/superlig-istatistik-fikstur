@@ -15,6 +15,22 @@ try {
   console.error("Stadium mappings load error:", e.message);
 }
 
+const TR_NAMES = {
+  "South Africa": "Güney Afrika", "Brazil": "Brezilya", "Scotland": "İskoçya", "Turkey": "Türkiye",
+  "Ivory Coast": "Fildişi Sahili", "Netherlands": "Hollanda", "Cape Verde": "Yeşil Burun Adaları",
+  "France": "Fransa", "Tunisia": "Tunus", "Egypt": "Mısır", "Iraq": "Irak", "Portugal": "Portekiz",
+  "Uzbekistan": "Özbekistan", "Colombia": "Kolombiya", "Ecuador": "Ekvador", "Japan": "Japonya",
+  "New Zealand": "Yeni Zelanda", "Saudi Arabia": "Suudi Arabistan", "Austria": "Avusturya",
+  "Ghana": "Gana", "South Korea": "Güney Kore", "Spain": "İspanya", "Norway": "Norveç",
+  "Argentina": "Arjantin", "Democratic Republic of the Congo": "Demokratik Kongo Cumhuriyeti",
+  "England": "İngiltere", "Czech Republic": "Çekya", "Canada": "Kanada", "Qatar": "Katar",
+  "Switzerland": "İsviçre", "Morocco": "Fas", "Paraguay": "Paraguay", "Curaçao": "Curaçao",
+  "Sweden": "İsveç", "Algeria": "Cezayir", "Jordan": "Ürdün", "Haiti": "Haiti", "Germany": "Almanya",
+  "Uruguay": "Uruguay", "Senegal": "Senegal", "Panama": "Panama", "Mexico": "Meksika",
+  "Bosnia and Herzegovina": "Bosna-Hersek", "United States": "ABD", "Australia": "Avustralya",
+  "Iran": "İran", "Belgium": "Belçika", "Croatia": "Hırvatistan"
+};
+
 const MIME_TYPES = {
   ".html": "text/html", ".css": "text/css", ".js": "text/javascript",
   ".json": "application/json", ".png": "image/png", ".jpg": "image/jpg",
@@ -346,8 +362,6 @@ function enrichGame(game) {
   }
   if (dd.events) {
     game.events = dd.events.filter(e => e.type === "YC" || e.type === "Y2" || e.type === "RC");
-    game.home_scorers = extractScorers(dd.events, "A");
-    game.away_scorers = extractScorers(dd.events, "B");
   }
 }
 

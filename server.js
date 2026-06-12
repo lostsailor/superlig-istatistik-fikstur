@@ -526,10 +526,18 @@ function transform(sahadanResp, wcGames = null) {
     for (const gs of data.gamesets) {
       for (const m of gs.matches) {
         if (m.team_A && m.team_B) {
+          const finished = m.status === "Played";
+          const isLive = m.status !== "Played" && m.status !== "Fixture";
+          let timeElapsed = "notstarted";
+          if (finished) timeElapsed = "finished";
+          else if (isLive) timeElapsed = m.minute !== undefined ? String(m.minute) : "live";
+          
           sahadanMatches.push({
             uuid: m.uuid,
             homeEn: cleanPlaceholderName(enName(m.team_A.name)),
-            awayEn: cleanPlaceholderName(enName(m.team_B.name))
+            awayEn: cleanPlaceholderName(enName(m.team_B.name)),
+            finished: finished,
+            timeElapsed: timeElapsed
           });
         }
       }
@@ -560,6 +568,14 @@ function transform(sahadanResp, wcGames = null) {
 
       const sMatch = sahadanMatches.find(sm => sm.homeEn === wg.home_team_name_en && sm.awayEn === wg.away_team_name_en);
 
+      let isFinished = wg.finished === "TRUE" || wg.finished === true;
+      let elapsed = wg.time_elapsed === "null" ? "notstarted" : wg.time_elapsed;
+
+      if (sMatch) {
+        isFinished = sMatch.finished;
+        elapsed = sMatch.timeElapsed;
+      }
+
       let hs = wg.home_score === "null" || wg.home_score === null ? null : parseInt(wg.home_score);
       let as = wg.away_score === "null" || wg.away_score === null ? null : parseInt(wg.away_score);
       
@@ -583,8 +599,8 @@ function transform(sahadanResp, wcGames = null) {
         local_date: wg.local_date,
         stadium_id: wg.stadium_id === "null" ? null : wg.stadium_id, 
         stadium_name_tr: stNameTr, stadium_city_tr: stCityTr, stadium_country_tr: stCountryTr,
-        finished: wg.finished === "TRUE" || wg.finished === true, 
-        time_elapsed: wg.time_elapsed === "null" ? "notstarted" : wg.time_elapsed,
+        finished: isFinished, 
+        time_elapsed: elapsed,
         type: wg.type, 
         home_team_label: wg.home_team_label === "null" ? null : wg.home_team_label, 
         away_team_label: wg.away_team_label === "null" ? null : wg.away_team_label

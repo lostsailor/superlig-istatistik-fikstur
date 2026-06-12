@@ -560,10 +560,24 @@ function transform(sahadanResp, wcGames = null) {
         if (tB && tB.groups.indexOf(wg.group) === -1) tB.groups = tB.groups ? tB.groups + "," + wg.group : wg.group;
         
         if (tA && !g.teams.find(t => t.team_id === tA.id)) {
-          g.teams.push({ ...tA, team_id: tA.id, mp: 0, w: 0, d: 0, l: 0, gf: 0, ga: 0, gd: 0, pts: 0 });
+          g.teams.push({
+            team_id: tA.id,
+            name_tr: tA.name_tr,
+            name_en: tA.name_en,
+            flag: tA.flag,
+            fifa_code: tA.fifa_code,
+            mp: 0, w: 0, d: 0, l: 0, gf: 0, ga: 0, gd: 0, pts: 0
+          });
         }
         if (tB && !g.teams.find(t => t.team_id === tB.id)) {
-          g.teams.push({ ...tB, team_id: tB.id, mp: 0, w: 0, d: 0, l: 0, gf: 0, ga: 0, gd: 0, pts: 0 });
+          g.teams.push({
+            team_id: tB.id,
+            name_tr: tB.name_tr,
+            name_en: tB.name_en,
+            flag: tB.flag,
+            fifa_code: tB.fifa_code,
+            mp: 0, w: 0, d: 0, l: 0, gf: 0, ga: 0, gd: 0, pts: 0
+          });
         }
       }
 

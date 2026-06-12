@@ -391,13 +391,11 @@ const WORLD_CUP_2026_DATA = {
       "name": "A",
       "teams": [
         {
-          "id": "1",
+          "team_id": "1",
           "name_tr": "Meksika",
           "name_en": "Mexico",
           "flag": "https://flagcdn.com/w80/mx.png",
           "fifa_code": "MEX",
-          "groups": "A",
-          "team_id": "1",
           "mp": 1,
           "w": 1,
           "d": 0,
@@ -408,13 +406,11 @@ const WORLD_CUP_2026_DATA = {
           "pts": 3
         },
         {
-          "id": "3",
+          "team_id": "3",
           "name_tr": "Güney Kore",
           "name_en": "South Korea",
           "flag": "https://flagcdn.com/w80/kr.png",
           "fifa_code": "KOR",
-          "groups": "A",
-          "team_id": "3",
           "mp": 1,
           "w": 1,
           "d": 0,
@@ -425,13 +421,11 @@ const WORLD_CUP_2026_DATA = {
           "pts": 3
         },
         {
-          "id": "4",
+          "team_id": "4",
           "name_tr": "Çekya",
           "name_en": "Czech Republic",
           "flag": "https://flagcdn.com/w80/cz.png",
           "fifa_code": "CZE",
-          "groups": "A",
-          "team_id": "4",
           "mp": 1,
           "w": 0,
           "d": 0,
@@ -442,13 +436,11 @@ const WORLD_CUP_2026_DATA = {
           "pts": 0
         },
         {
-          "id": "2",
+          "team_id": "2",
           "name_tr": "Güney Afrika",
           "name_en": "South Africa",
           "flag": "https://flagcdn.com/w80/za.png",
           "fifa_code": "RSA",
-          "groups": "A",
-          "team_id": "2",
           "mp": 1,
           "w": 0,
           "d": 0,
@@ -464,13 +456,11 @@ const WORLD_CUP_2026_DATA = {
       "name": "B",
       "teams": [
         {
-          "id": "6",
+          "team_id": "6",
           "name_tr": "Bosna-Hersek",
           "name_en": "Bosnia and Herzegovina",
           "flag": "https://flagcdn.com/w80/ba.png",
           "fifa_code": "BIH",
-          "groups": "B",
-          "team_id": "6",
           "mp": 1,
           "w": 0,
           "d": 1,
@@ -481,13 +471,11 @@ const WORLD_CUP_2026_DATA = {
           "pts": 1
         },
         {
-          "id": "5",
+          "team_id": "5",
           "name_tr": "Kanada",
           "name_en": "Canada",
           "flag": "https://flagcdn.com/w80/ca.png",
           "fifa_code": "CAN",
-          "groups": "B",
-          "team_id": "5",
           "mp": 1,
           "w": 0,
           "d": 1,
@@ -498,13 +486,11 @@ const WORLD_CUP_2026_DATA = {
           "pts": 1
         },
         {
-          "id": "8",
+          "team_id": "8",
           "name_tr": "İsviçre",
           "name_en": "Switzerland",
           "flag": "https://flagcdn.com/w80/ch.png",
           "fifa_code": "SUI",
-          "groups": "B",
-          "team_id": "8",
           "mp": 0,
           "w": 0,
           "d": 0,
@@ -515,13 +501,11 @@ const WORLD_CUP_2026_DATA = {
           "pts": 0
         },
         {
-          "id": "7",
+          "team_id": "7",
           "name_tr": "Katar",
           "name_en": "Qatar",
           "flag": "https://flagcdn.com/w80/qa.png",
           "fifa_code": "QAT",
-          "groups": "B",
-          "team_id": "7",
           "mp": 0,
           "w": 0,
           "d": 0,
@@ -537,13 +521,11 @@ const WORLD_CUP_2026_DATA = {
       "name": "C",
       "teams": [
         {
-          "id": "9",
+          "team_id": "9",
           "name_tr": "Brezilya",
           "name_en": "Brazil",
           "flag": "https://flagcdn.com/w80/br.png",
           "fifa_code": "BRA",
-          "groups": "C",
-          "team_id": "9",
           "mp": 0,
           "w": 0,
           "d": 0,
@@ -554,13 +536,11 @@ const WORLD_CUP_2026_DATA = {
           "pts": 0
         },
         {
-          "id": "10",
+          "team_id": "10",
           "name_tr": "Fas",
           "name_en": "Morocco",
           "flag": "https://flagcdn.com/w80/ma.png",
           "fifa_code": "MAR",
-          "groups": "C",
-          "team_id": "10",
           "mp": 0,
           "w": 0,
           "d": 0,
@@ -571,13 +551,11 @@ const WORLD_CUP_2026_DATA = {
           "pts": 0
         },
         {
-          "id": "11",
+          "team_id": "11",
           "name_tr": "Haiti",
           "name_en": "Haiti",
           "flag": "https://flagcdn.com/w80/ht.png",
           "fifa_code": "HAI",
-          "groups": "C",
-          "team_id": "11",
           "mp": 0,
           "w": 0,
           "d": 0,
@@ -588,13 +566,11 @@ const WORLD_CUP_2026_DATA = {
           "pts": 0
         },
         {
-          "id": "12",
+          "team_id": "12",
           "name_tr": "İskoçya",
           "name_en": "Scotland",
           "flag": "https://flagcdn.com/w80/gb-sct.png",
           "fifa_code": "SCO",
-          "groups": "C",
-          "team_id": "12",
           "mp": 0,
           "w": 0,
           "d": 0,
@@ -610,13 +586,11 @@ const WORLD_CUP_2026_DATA = {
       "name": "D",
       "teams": [
         {
-          "id": "13",
+          "team_id": "13",
           "name_tr": "ABD",
           "name_en": "United States",
           "flag": "https://flagcdn.com/w80/us.png",
           "fifa_code": "USA",
-          "groups": "D",
-          "team_id": "13",
           "mp": 0,
           "w": 0,
           "d": 0,
@@ -627,13 +601,11 @@ const WORLD_CUP_2026_DATA = {
           "pts": 0
         },
         {
-          "id": "15",
+          "team_id": "15",
           "name_tr": "Avustralya",
           "name_en": "Australia",
           "flag": "https://flagcdn.com/w80/au.png",
           "fifa_code": "AUS",
-          "groups": "D",
-          "team_id": "15",
           "mp": 0,
           "w": 0,
           "d": 0,
@@ -644,13 +616,11 @@ const WORLD_CUP_2026_DATA = {
           "pts": 0
         },
         {
-          "id": "14",
+          "team_id": "14",
           "name_tr": "Paraguay",
           "name_en": "Paraguay",
           "flag": "https://flagcdn.com/w80/py.png",
           "fifa_code": "PAR",
-          "groups": "D",
-          "team_id": "14",
           "mp": 0,
           "w": 0,
           "d": 0,
@@ -661,13 +631,11 @@ const WORLD_CUP_2026_DATA = {
           "pts": 0
         },
         {
-          "id": "16",
+          "team_id": "16",
           "name_tr": "Türkiye",
           "name_en": "Turkey",
           "flag": "https://flagcdn.com/w80/tr.png",
           "fifa_code": "TUR",
-          "groups": "D",
-          "team_id": "16",
           "mp": 0,
           "w": 0,
           "d": 0,
@@ -683,13 +651,11 @@ const WORLD_CUP_2026_DATA = {
       "name": "E",
       "teams": [
         {
-          "id": "17",
+          "team_id": "17",
           "name_tr": "Almanya",
           "name_en": "Germany",
           "flag": "https://flagcdn.com/w80/de.png",
           "fifa_code": "GER",
-          "groups": "E",
-          "team_id": "17",
           "mp": 0,
           "w": 0,
           "d": 0,
@@ -700,13 +666,11 @@ const WORLD_CUP_2026_DATA = {
           "pts": 0
         },
         {
-          "id": "18",
+          "team_id": "18",
           "name_tr": "Curaçao",
           "name_en": "Curaçao",
           "flag": "https://flagcdn.com/w80/cw.png",
           "fifa_code": "CUR",
-          "groups": "E",
-          "team_id": "18",
           "mp": 0,
           "w": 0,
           "d": 0,
@@ -717,13 +681,11 @@ const WORLD_CUP_2026_DATA = {
           "pts": 0
         },
         {
-          "id": "20",
+          "team_id": "20",
           "name_tr": "Ekvador",
           "name_en": "Ecuador",
           "flag": "https://flagcdn.com/w80/ec.png",
           "fifa_code": "ECU",
-          "groups": "E",
-          "team_id": "20",
           "mp": 0,
           "w": 0,
           "d": 0,
@@ -734,13 +696,11 @@ const WORLD_CUP_2026_DATA = {
           "pts": 0
         },
         {
-          "id": "19",
+          "team_id": "19",
           "name_tr": "Fildişi Sahili",
           "name_en": "Ivory Coast",
           "flag": "https://flagcdn.com/w80/ci.png",
           "fifa_code": "CIV",
-          "groups": "E",
-          "team_id": "19",
           "mp": 0,
           "w": 0,
           "d": 0,
@@ -756,13 +716,11 @@ const WORLD_CUP_2026_DATA = {
       "name": "F",
       "teams": [
         {
-          "id": "21",
+          "team_id": "21",
           "name_tr": "Hollanda",
           "name_en": "Netherlands",
           "flag": "https://flagcdn.com/w80/nl.png",
           "fifa_code": "NED",
-          "groups": "F",
-          "team_id": "21",
           "mp": 0,
           "w": 0,
           "d": 0,
@@ -773,13 +731,11 @@ const WORLD_CUP_2026_DATA = {
           "pts": 0
         },
         {
-          "id": "23",
+          "team_id": "23",
           "name_tr": "İsveç",
           "name_en": "Sweden",
           "flag": "https://flagcdn.com/w80/se.png",
           "fifa_code": "SWE",
-          "groups": "F",
-          "team_id": "23",
           "mp": 0,
           "w": 0,
           "d": 0,
@@ -790,13 +746,11 @@ const WORLD_CUP_2026_DATA = {
           "pts": 0
         },
         {
-          "id": "22",
+          "team_id": "22",
           "name_tr": "Japonya",
           "name_en": "Japan",
           "flag": "https://flagcdn.com/w80/jp.png",
           "fifa_code": "JPN",
-          "groups": "F",
-          "team_id": "22",
           "mp": 0,
           "w": 0,
           "d": 0,
@@ -807,13 +761,11 @@ const WORLD_CUP_2026_DATA = {
           "pts": 0
         },
         {
-          "id": "24",
+          "team_id": "24",
           "name_tr": "Tunus",
           "name_en": "Tunisia",
           "flag": "https://flagcdn.com/w80/tn.png",
           "fifa_code": "TUN",
-          "groups": "F",
-          "team_id": "24",
           "mp": 0,
           "w": 0,
           "d": 0,
@@ -829,13 +781,11 @@ const WORLD_CUP_2026_DATA = {
       "name": "G",
       "teams": [
         {
-          "id": "25",
+          "team_id": "25",
           "name_tr": "Belçika",
           "name_en": "Belgium",
           "flag": "https://flagcdn.com/w80/be.png",
           "fifa_code": "BEL",
-          "groups": "G",
-          "team_id": "25",
           "mp": 0,
           "w": 0,
           "d": 0,
@@ -846,13 +796,11 @@ const WORLD_CUP_2026_DATA = {
           "pts": 0
         },
         {
-          "id": "27",
+          "team_id": "27",
           "name_tr": "İran",
           "name_en": "Iran",
           "flag": "https://flagcdn.com/w80/ir.png",
           "fifa_code": "IRN",
-          "groups": "G",
-          "team_id": "27",
           "mp": 0,
           "w": 0,
           "d": 0,
@@ -863,13 +811,11 @@ const WORLD_CUP_2026_DATA = {
           "pts": 0
         },
         {
-          "id": "26",
+          "team_id": "26",
           "name_tr": "Mısır",
           "name_en": "Egypt",
           "flag": "https://flagcdn.com/w80/eg.png",
           "fifa_code": "EGY",
-          "groups": "G",
-          "team_id": "26",
           "mp": 0,
           "w": 0,
           "d": 0,
@@ -880,13 +826,11 @@ const WORLD_CUP_2026_DATA = {
           "pts": 0
         },
         {
-          "id": "28",
+          "team_id": "28",
           "name_tr": "Yeni Zelanda",
           "name_en": "New Zealand",
           "flag": "https://flagcdn.com/w80/nz.png",
           "fifa_code": "NZL",
-          "groups": "G",
-          "team_id": "28",
           "mp": 0,
           "w": 0,
           "d": 0,
@@ -902,13 +846,11 @@ const WORLD_CUP_2026_DATA = {
       "name": "H",
       "teams": [
         {
-          "id": "29",
+          "team_id": "29",
           "name_tr": "İspanya",
           "name_en": "Spain",
           "flag": "https://flagcdn.com/w80/es.png",
           "fifa_code": "ESP",
-          "groups": "H",
-          "team_id": "29",
           "mp": 0,
           "w": 0,
           "d": 0,
@@ -919,13 +861,11 @@ const WORLD_CUP_2026_DATA = {
           "pts": 0
         },
         {
-          "id": "31",
+          "team_id": "31",
           "name_tr": "Suudi Arabistan",
           "name_en": "Saudi Arabia",
           "flag": "https://flagcdn.com/w80/sa.png",
           "fifa_code": "KSA",
-          "groups": "H",
-          "team_id": "31",
           "mp": 0,
           "w": 0,
           "d": 0,
@@ -936,13 +876,11 @@ const WORLD_CUP_2026_DATA = {
           "pts": 0
         },
         {
-          "id": "32",
+          "team_id": "32",
           "name_tr": "Uruguay",
           "name_en": "Uruguay",
           "flag": "https://flagcdn.com/w80/uy.png",
           "fifa_code": "URU",
-          "groups": "H",
-          "team_id": "32",
           "mp": 0,
           "w": 0,
           "d": 0,
@@ -953,13 +891,11 @@ const WORLD_CUP_2026_DATA = {
           "pts": 0
         },
         {
-          "id": "30",
+          "team_id": "30",
           "name_tr": "Yeşil Burun Adaları",
           "name_en": "Cape Verde",
           "flag": "https://flagcdn.com/w80/cv.png",
           "fifa_code": "CPV",
-          "groups": "H",
-          "team_id": "30",
           "mp": 0,
           "w": 0,
           "d": 0,
@@ -975,13 +911,11 @@ const WORLD_CUP_2026_DATA = {
       "name": "I",
       "teams": [
         {
-          "id": "33",
+          "team_id": "33",
           "name_tr": "Fransa",
           "name_en": "France",
           "flag": "https://flagcdn.com/w80/fr.png",
           "fifa_code": "FRA",
-          "groups": "I",
-          "team_id": "33",
           "mp": 0,
           "w": 0,
           "d": 0,
@@ -992,13 +926,11 @@ const WORLD_CUP_2026_DATA = {
           "pts": 0
         },
         {
-          "id": "35",
+          "team_id": "35",
           "name_tr": "Irak",
           "name_en": "Iraq",
           "flag": "https://flagcdn.com/w80/iq.png",
           "fifa_code": "IRQ",
-          "groups": "I",
-          "team_id": "35",
           "mp": 0,
           "w": 0,
           "d": 0,
@@ -1009,13 +941,11 @@ const WORLD_CUP_2026_DATA = {
           "pts": 0
         },
         {
-          "id": "36",
+          "team_id": "36",
           "name_tr": "Norveç",
           "name_en": "Norway",
           "flag": "https://flagcdn.com/w80/no.png",
           "fifa_code": "NOR",
-          "groups": "I",
-          "team_id": "36",
           "mp": 0,
           "w": 0,
           "d": 0,
@@ -1026,13 +956,11 @@ const WORLD_CUP_2026_DATA = {
           "pts": 0
         },
         {
-          "id": "34",
+          "team_id": "34",
           "name_tr": "Senegal",
           "name_en": "Senegal",
           "flag": "https://flagcdn.com/w80/sn.png",
           "fifa_code": "SEN",
-          "groups": "I",
-          "team_id": "34",
           "mp": 0,
           "w": 0,
           "d": 0,
@@ -1048,13 +976,11 @@ const WORLD_CUP_2026_DATA = {
       "name": "J",
       "teams": [
         {
-          "id": "37",
+          "team_id": "37",
           "name_tr": "Arjantin",
           "name_en": "Argentina",
           "flag": "https://flagcdn.com/w80/ar.png",
           "fifa_code": "ARG",
-          "groups": "J",
-          "team_id": "37",
           "mp": 0,
           "w": 0,
           "d": 0,
@@ -1065,13 +991,11 @@ const WORLD_CUP_2026_DATA = {
           "pts": 0
         },
         {
-          "id": "39",
+          "team_id": "39",
           "name_tr": "Avusturya",
           "name_en": "Austria",
           "flag": "https://flagcdn.com/w80/at.png",
           "fifa_code": "AUT",
-          "groups": "J",
-          "team_id": "39",
           "mp": 0,
           "w": 0,
           "d": 0,
@@ -1082,13 +1006,11 @@ const WORLD_CUP_2026_DATA = {
           "pts": 0
         },
         {
-          "id": "38",
+          "team_id": "38",
           "name_tr": "Cezayir",
           "name_en": "Algeria",
           "flag": "https://flagcdn.com/w80/dz.png",
           "fifa_code": "ALG",
-          "groups": "J",
-          "team_id": "38",
           "mp": 0,
           "w": 0,
           "d": 0,
@@ -1099,13 +1021,11 @@ const WORLD_CUP_2026_DATA = {
           "pts": 0
         },
         {
-          "id": "40",
+          "team_id": "40",
           "name_tr": "Ürdün",
           "name_en": "Jordan",
           "flag": "https://flagcdn.com/w80/jo.png",
           "fifa_code": "JOR",
-          "groups": "J",
-          "team_id": "40",
           "mp": 0,
           "w": 0,
           "d": 0,
@@ -1121,13 +1041,11 @@ const WORLD_CUP_2026_DATA = {
       "name": "K",
       "teams": [
         {
-          "id": "42",
+          "team_id": "42",
           "name_tr": "Demokratik Kongo Cumhuriyeti",
           "name_en": "Democratic Republic of the Congo",
           "flag": "https://flagcdn.com/w80/cd.png",
           "fifa_code": "COD",
-          "groups": "K",
-          "team_id": "42",
           "mp": 0,
           "w": 0,
           "d": 0,
@@ -1138,13 +1056,11 @@ const WORLD_CUP_2026_DATA = {
           "pts": 0
         },
         {
-          "id": "44",
+          "team_id": "44",
           "name_tr": "Kolombiya",
           "name_en": "Colombia",
           "flag": "https://flagcdn.com/w80/co.png",
           "fifa_code": "COL",
-          "groups": "K",
-          "team_id": "44",
           "mp": 0,
           "w": 0,
           "d": 0,
@@ -1155,13 +1071,11 @@ const WORLD_CUP_2026_DATA = {
           "pts": 0
         },
         {
-          "id": "43",
+          "team_id": "43",
           "name_tr": "Özbekistan",
           "name_en": "Uzbekistan",
           "flag": "https://flagcdn.com/w80/uz.png",
           "fifa_code": "UZB",
-          "groups": "K",
-          "team_id": "43",
           "mp": 0,
           "w": 0,
           "d": 0,
@@ -1172,13 +1086,11 @@ const WORLD_CUP_2026_DATA = {
           "pts": 0
         },
         {
-          "id": "41",
+          "team_id": "41",
           "name_tr": "Portekiz",
           "name_en": "Portugal",
           "flag": "https://flagcdn.com/w80/pt.png",
           "fifa_code": "POR",
-          "groups": "K",
-          "team_id": "41",
           "mp": 0,
           "w": 0,
           "d": 0,
@@ -1194,13 +1106,11 @@ const WORLD_CUP_2026_DATA = {
       "name": "L",
       "teams": [
         {
-          "id": "47",
+          "team_id": "47",
           "name_tr": "Gana",
           "name_en": "Ghana",
           "flag": "https://flagcdn.com/w80/gh.png",
           "fifa_code": "GHA",
-          "groups": "L",
-          "team_id": "47",
           "mp": 0,
           "w": 0,
           "d": 0,
@@ -1211,13 +1121,11 @@ const WORLD_CUP_2026_DATA = {
           "pts": 0
         },
         {
-          "id": "46",
+          "team_id": "46",
           "name_tr": "Hırvatistan",
           "name_en": "Croatia",
           "flag": "https://flagcdn.com/w80/hr.png",
           "fifa_code": "CRO",
-          "groups": "L",
-          "team_id": "46",
           "mp": 0,
           "w": 0,
           "d": 0,
@@ -1228,13 +1136,11 @@ const WORLD_CUP_2026_DATA = {
           "pts": 0
         },
         {
-          "id": "45",
+          "team_id": "45",
           "name_tr": "İngiltere",
           "name_en": "England",
           "flag": "https://flagcdn.com/w80/gb-eng.png",
           "fifa_code": "ENG",
-          "groups": "L",
-          "team_id": "45",
           "mp": 0,
           "w": 0,
           "d": 0,
@@ -1245,13 +1151,11 @@ const WORLD_CUP_2026_DATA = {
           "pts": 0
         },
         {
-          "id": "48",
+          "team_id": "48",
           "name_tr": "Panama",
           "name_en": "Panama",
           "flag": "https://flagcdn.com/w80/pa.png",
           "fifa_code": "PAN",
-          "groups": "L",
-          "team_id": "48",
           "mp": 0,
           "w": 0,
           "d": 0,
